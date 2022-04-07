@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 
 @include('siswa.components.header')
@@ -22,12 +21,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0"></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Formulir</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,27 +36,95 @@
 
     <!-- Main content -->
     <section class="content">
+      <h1 class="m-0 text-center">Formulir Pendaftaran Ulang Siswa Baru</h1>
+      <h2 class="m-0 text-center"> SMA Negeri 1 Tiga Panah</h2>
+      <h4 class="m-0 text-center">Alamat</h4>
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>Jumlah Siswa</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+        <form>
+          <div class="form-group">
+            <label for="nama_lengkap">Nama Lengkap</label>
+            <input type="text" class="form-control" id="nama_lengkap">
           </div>
-         
-        </div>
-        <!-- /.row -->
-        <!-- Main row -->
+          <div class="form-group">
+            <label for="nama_panggilan">Nama Panggilan</label>
+            <input type="text" class="form-control" id="nama_panggilan">
+          </div>
+          <div class="form-group">
+            <label for="nama_panggilan">Jenis Kelamin : </label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="id_jenis_kelamin" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Laki-Laki</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="id_jenis_kelamin" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="tempat_lahir">Tempat Lahir</label>
+            <input type="text" class="form-control" id="tempat_lahir">
+          </div>
+          <div class="form-group">
+            <label for="tanggal_lahir">Tanggal Lahir</label>
+            <input type="date" class="form-control" id="tanggal_lahir">
+          </div>
+          <div class="form-group">
+            <label for="nama_panggilan">Agama : </label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="id_agama" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Kristen</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="id_agama" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Islam</label>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="anak_ke">Anak Ke -</label>
+            <input type="text" class="form-control" id="anak_ke">
+          </div>
+          <div class="form-group">
+            <label for="saudara_kandung">Saudara Kandung</label>
+            <input type="text" class="form-control" id="saudara_kandung">
+          </div>
+          <div class="form-group">
+            <label for="saudara_tiri">Saudara Tiri</label>
+            <input type="text" class="form-control" id="saudara_tiri">
+          </div>
+          <div class="form-group">
+            <label for="nik">NIK</label>
+            <input type="text" class="form-control" id="nik">
+          </div>
+          <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control" id="alamat">
+          </div>
+          <div class="form-group">
+            <label for="rt_rw">RT/RW</label>
+            <input type="text" class="form-control" id="rt_rw">
+          </div>
+          <div class="form-group">
+            <label for="kelurahan">Kelurahan</label>
+            <input type="text" class="form-control" id="kelurahan">
+          </div>
+          <div class="form-group">
+            <label for="kecamatan">Kecamatan</label>
+            <input type="text" class="form-control" id="kecamatan">
+          </div>
+          <div class="form-group">
+            <label for="kecamatan">Kecamatan</label>
+            <input type="text" class="form-control" id="kecamatan">
+          </div>
+          <div class="form-group">
+            <label for="provinsi">Provinsi</label>
+            <input type="text" class="form-control" id="provinsi">
+          </div>
+          <div class="form-group">
+            <label for="kode_pos">Kode Pos</label>
+            <input type="text" class="form-control" id="kode_pos">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
