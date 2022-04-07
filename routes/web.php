@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataPendaftarController;
+use App\Http\Controllers\DataPengumumanController;
+use App\Http\Controllers\FormulirController;
+use App\Http\Controllers\CetakDokumenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +23,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::view('/admin', 'admin.dashboard');
-Route::view('/admin/data_pendaftar', 'admin.data_pendaftar');
-Route::view('/admin/data_pengumuman', 'admin.data_pengumuman');
+ Route::get('/admin', [DashboardController::class, 'dashboard_admin']);
+ Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
+ Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin']);
 
-Route::view('/siswa', 'siswa.dashboard');
-Route::view('/siswa/formulir', 'siswa.formulir');
+
+Route::get('/siswa', [DashboardController::class, 'dashboard_siswa']);
+Route::get('/siswa/formulir', [FormulirController::class, 'formulir_pendaftaran']);
+Route::get('/siswa/cetak_kwitansi', [CetakDokumenController::class, 'cetak_kwitansi']);

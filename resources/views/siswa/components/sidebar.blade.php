@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/siswa/cetak_kwintansi" class="nav-link">
+                    <a href="/siswa/cetak_kwitansi" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p>Cetak Kwitansi</p>
                     </a>
