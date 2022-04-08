@@ -18,12 +18,12 @@ class RegisterController extends Controller
     return view('register_admin');
    }
 
-   public function store(Request $request)
+   public function store_siswa(Request $request)
    {
 
     //    dd('submitted');
     // // 
-    
+    $nama_lengkap = $request->nama_lengkap;
     $nomor_pendaftaran = $request->nomor_pendaftaran;
     $nidn = $request->nidn;
     $tanggal_lahir = $request->tanggal_lahir;
@@ -32,9 +32,9 @@ class RegisterController extends Controller
     
     
         try {
-            DB::transaction(function () use ($id, $email, $nomor_pendaftaran, $nidn) {
+            DB::transaction(function () use ($id, $email, $nomor_pendaftaran, $nidn, $nama_lengkap) {
                 DB::insert("INSERT INTO user(id,email,id_user_level,id_user_detail) VALUES('$id','$email','2','$id')");
-                DB::insert("INSERT INTO user_detail(id_user_detail,nomor_pendaftaran,nidn) VALUES('$id','$nomor_pendaftaran','$nidn')");
+                DB::insert("INSERT INTO user_detail(id_user_detail,nomor_pendaftaran,nidn,nama_lengkap) VALUES('$id','$nomor_pendaftaran','$nidn','$nama_lengkap')");
             });
                 return redirect()
                     ->route('login_web')

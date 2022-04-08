@@ -36,6 +36,9 @@
                 <form method="POST" action="/register_proses">
                     @csrf
                         <div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="Nama Lengkap" name="nama_lengkap">
+                        </div>
+                        <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="Nomor Pendaftaran" name="nomor_pendaftaran">
                         </div>
                         <div class="input-group">

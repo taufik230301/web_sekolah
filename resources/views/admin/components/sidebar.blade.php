@@ -36,6 +36,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/data_request" class="nav-link">
+                        <i class="nav-icon fas fa-user text-danger"></i>
+                        <p class="text">Data Request Akun</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/data_pengumuman" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p>Data Pengumuman</p>

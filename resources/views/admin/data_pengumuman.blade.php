@@ -49,11 +49,11 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
+                                                <th>No</th>
+                                                <th>Judul Pengumuman</th>
+                                                <th>Isi Pengumuman</th>
+                                                <th>Nama Penulis</th>
+                                                <th>Tanggal Pengumuman</th>
                                             </tr>
                                         </thead>
                                         <tbody>
