@@ -48,7 +48,7 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
+                                                <th>NIDN</th>
                                                 <th>Nomor Pendaftaran</th>
                                                 <th>Nama</th>
                                                 <th>Tanggal Lahir</th>
@@ -56,14 +56,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php($count = 1)
+                                            @foreach($user_requests as $user_request)
                                             <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 4.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td> 4</td>
-                                                <td>X</td>
+                                                <td>{{ $user_request->nidn}}</td>
+                                                <td>{{ $user_request->nomor_pendaftaran}}</td>
+                                                <td>{{ $user_request->nama_lengkap}}</td>
+                                                <td>{{ $user_request->tanggal_lahir}}</td>
+                                                <td>{{ $user_request->email}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

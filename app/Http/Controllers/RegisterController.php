@@ -32,9 +32,9 @@ class RegisterController extends Controller
     
     
         try {
-            DB::transaction(function () use ($id, $email, $nomor_pendaftaran, $nidn, $nama_lengkap) {
+            DB::transaction(function () use ($id, $email, $nomor_pendaftaran, $nidn, $nama_lengkap, $tanggal_lahir) {
                 DB::insert("INSERT INTO user(id,email,id_user_level,id_user_detail) VALUES('$id','$email','2','$id')");
-                DB::insert("INSERT INTO user_detail(id_user_detail,nomor_pendaftaran,nidn,nama_lengkap) VALUES('$id','$nomor_pendaftaran','$nidn','$nama_lengkap')");
+                DB::insert("INSERT INTO user_detail(id_user_detail,nomor_pendaftaran,nidn,nama_lengkap,tanggal_lahir,id_status_validasi) VALUES('$id','$nomor_pendaftaran','$nidn','$nama_lengkap','$tanggal_lahir','1')");
             });
                 return redirect()
                     ->route('login_web')

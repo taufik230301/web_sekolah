@@ -39,6 +39,7 @@ class LoginController extends Controller
             }else if($user->id_user_level == 2){
                $request->session()->put('username', $username);
                $request->session()->put('id', $user->id);
+               $request->session()->put('loggin', true);
 
                return redirect()
                        ->route('siswa')

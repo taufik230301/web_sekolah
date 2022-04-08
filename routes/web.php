@@ -38,7 +38,8 @@ Route::post('/register_proses_admin', [RegisterController::class, 'store_admin']
 Route::get('/admin', [DashboardController::class, 'dashboard_admin'])->name('admin');
 Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
 Route::get('/admin/data_request', [DataRequestController::class, 'data_request_admin']);
-Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin']);
+Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin'])->name('data_pengumuman_admin');
+Route::post('/admin/data_pengumuman_tambah', [DataPengumumanController::class, 'store_pengumuman']);
 
 
 Route::get('/siswa', [DashboardController::class, 'dashboard_siswa'])->name('siswa');
