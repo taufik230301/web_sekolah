@@ -50,6 +50,9 @@
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Submit</button>
                         </div>
+                        <div class="p-t-20">
+                            <a href="/login_web" class="btn btn--radius btn--green mt-2">Login Akun</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -65,6 +68,9 @@
 
     <!-- Main JS-->
     <script src="{{ asset('register/js/global.js') }}"></script>
+
+    {{-- Alert Close --}}
+    <script src="{{ asset('dist/js/custom.js') }}"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

@@ -8,7 +8,16 @@ class DashboardController extends Controller
 {
     public function dashboard_admin()
     {
-        return view('admin.dashboard');
+        if(session()->get('username') == true){
+            return view('admin.dashboard');
+        }else{
+            return redirect()
+            ->route('login_web')
+            ->with([
+                'error' => 'Sesi Anda berakhir !'
+            ]);
+        }
+       
     }
 
     public function dashboard_siswa()

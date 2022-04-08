@@ -45,6 +45,10 @@ $.widget.bridge('uibutton', $.ui.button)
     <script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+    {{-- Alert Close --}}
+    <script src="{{ asset('dist/js/custom.js') }}"></script>
+    
  <!-- Page specific script -->
  <script>
         $(function() {
