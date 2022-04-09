@@ -54,6 +54,8 @@
 				<div class="login100-form-title" style="background-image: url(http://127.0.0.1:8000/login/images/bg-01.jpg);">
 					<span class="login100-form-title-1">
 						Sign In
+						<br>
+						Website Pendaftaran Ulang SMA Negeri 1 Tiga Panah
 					</span>
 				</div>
 

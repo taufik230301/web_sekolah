@@ -15,7 +15,7 @@
                 <i class="far fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item dropdown-footer">Log Out</a>
+                <a href="/log_out" class="dropdown-item dropdown-footer">Log Out</a>
             </div>
         </li>
         <li class="nav-item">

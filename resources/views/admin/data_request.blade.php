@@ -63,7 +63,9 @@
                                                 <td>{{ $user_request->nomor_pendaftaran}}</td>
                                                 <td>{{ $user_request->nama_lengkap}}</td>
                                                 <td>{{ $user_request->tanggal_lahir}}</td>
-                                                <td>{{ $user_request->email}}</td>
+                                                <td>
+                                                <a href="send-mail/{{$user_request->email}}/{{$user_request->nama_lengkap}}/{{$user_request->id}}">{{ $user_request->email}}</a>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

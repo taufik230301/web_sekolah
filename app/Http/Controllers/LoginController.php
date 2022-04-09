@@ -20,6 +20,7 @@ class LoginController extends Controller
       $password = $request->password;
 
       $user = DB::table('user')
+      ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
       ->where('username', '=', $username)
       ->first();
 
@@ -28,6 +29,7 @@ class LoginController extends Controller
 
             if($user->id_user_level == 1){
                $request->session()->put('username', $user->username);
+               $request->session()->put('nama_lengkap', $user->nama_lengkap);
                $request->session()->put('id', $user->id);
                $request->session()->put('loggin', true);
 
@@ -38,6 +40,7 @@ class LoginController extends Controller
                     ]);
             }else if($user->id_user_level == 2){
                $request->session()->put('username', $username);
+               $request->session()->put('nama_lengkap', $user->nama_lengkap);
                $request->session()->put('id', $user->id);
                $request->session()->put('loggin', true);
 

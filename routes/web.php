@@ -41,9 +41,13 @@ Route::get('/admin/data_request', [DataRequestController::class, 'data_request_a
 Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin'])->name('data_pengumuman_admin');
 Route::post('/admin/data_pengumuman_tambah', [DataPengumumanController::class, 'store_pengumuman']);
 
-
 Route::get('/siswa', [DashboardController::class, 'dashboard_siswa'])->name('siswa');
 Route::get('/siswa/formulir', [FormulirController::class, 'formulir_pendaftaran']);
 Route::get('/siswa/cetak_kwitansi', [CetakDokumenController::class, 'cetak_kwitansi']);
+
+Route::get('/admin/send-mail/{email}/{nama_lengkap}/{id}', function ($email,  $nama_lengkap, $id) {
+   
+    return App::call('App\Http\Controllers\DataRequestController::send_mail' , ['email' => $email, 'nama_lengkap' => $nama_lengkap,  'id' => $id]);
+});
 
 
