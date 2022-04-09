@@ -36,6 +36,22 @@
 
             <!-- Main content -->
             <section class="content">
+            <!-- Notifikasi menggunakan flash session data -->
+					@if (session('success'))
+					<div class="alert alert-success" id="success-alert">
+						<button type="button" class="close" data-dismiss="alert">x</button>
+						<strong>{{ session('success') }}
+					  </div>
+					@endif
+			
+					@if (session('error'))
+					<div class="alert alert-error">
+						<div class="alert alert-danger" id="success-alert">
+							<button type="button" class="close" data-dismiss="alert">x</button>
+							<strong>{{ session('error') }}
+						  </div>
+					</div>
+					@endif
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
@@ -53,6 +69,7 @@
                                                 <th>Nama</th>
                                                 <th>Tanggal Lahir</th>
                                                 <th>Email</th>
+                                                <th>Status Validasi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,6 +80,7 @@
                                                 <td>{{ $user_request->nomor_pendaftaran}}</td>
                                                 <td>{{ $user_request->nama_lengkap}}</td>
                                                 <td>{{ $user_request->tanggal_lahir}}</td>
+                                                <td>{{ $user_request->id_status_validasi}}</td>
                                                 <td>
                                                 <a href="send-mail/{{$user_request->email}}/{{$user_request->nama_lengkap}}/{{$user_request->id}}">{{ $user_request->email}}</a>
                                                 </td>

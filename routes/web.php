@@ -42,7 +42,8 @@ Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pen
 Route::post('/admin/data_pengumuman_tambah', [DataPengumumanController::class, 'store_pengumuman']);
 
 Route::get('/siswa', [DashboardController::class, 'dashboard_siswa'])->name('siswa');
-Route::get('/siswa/formulir', [FormulirController::class, 'formulir_pendaftaran']);
+Route::get('/siswa/formulir', [FormulirController::class, 'formulir_pendaftaran'])->name('formulir_pendaftaran');
+Route::post('/formulir_proses', [FormulirController::class, 'formulir_proses']);
 Route::get('/siswa/cetak_kwitansi', [CetakDokumenController::class, 'cetak_kwitansi']);
 
 Route::get('/admin/send-mail/{email}/{nama_lengkap}/{id}', function ($email,  $nama_lengkap, $id) {

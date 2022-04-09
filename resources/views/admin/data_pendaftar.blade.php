@@ -4,42 +4,42 @@
 @include('admin.components.header')
 
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+    <div class="wrapper">
 
-  
 
-@include('admin.components.navbar')
 
-@include('admin.components.sidebar')
+        @include('admin.components.navbar')
 
-  
+        @include('admin.components.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Pengumuman</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
-   <!-- Main content -->
-   <section class="content">
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Dashboard</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Data Pengumuman</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-            
+
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">DataTable with default features</h3>
@@ -55,27 +55,39 @@
                                                 <th>Tanggal Lahir</th>
                                                 <th>Email</th>
                                                 <th>Jalur Pendaftaran</th>
-                                                <th>Status Validasi</th>
+                                                <th>Status Terdaftar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php($count = 1)
+                                            @foreach($user_pendaftars as $user_pendaftar)
                                             <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 4.0
+                                                <td>{{$user_pendaftar->nidn}}</td>
+                                                <td>{{$user_pendaftar->nomor_pendaftaran}}
                                                 </td>
-                                                <td>Win 95+</td>
-                                                <td> 4</td>
-                                                <td>X</td>
+                                                <td>{{$user_pendaftar->nama_lengkap}}</td>
+                                                <td>{{$user_pendaftar->tanggal_lahir}}</td>
+                                                <td>{{$user_pendaftar->email}}</td>
                                                 <td>Trident</td>
-                                                <td>Internet Explorer 4.0
+                                                <td>
+
+                                                  <?php
+                                                  if($user_pendaftar->id_status_terdaftar == 2 ){?>
+                                                    <i class="fas fa-check"></i>
+                                                  <?php } else{?>
+                                                    <i class="fas fa-times"></i>
+                                                    <?php }
+                                                  ?>
+
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
-                           
+
                         </div>
                         <!-- /.col -->
                     </div>
@@ -84,21 +96,21 @@
                 <!-- /.container-fluid -->
             </section>
             <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
- 
-  @include('admin.components.footer')
+        </div>
+        <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+        @include('admin.components.footer')
 
-@include('admin.components.js')
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    @include('admin.components.js')
 
 </body>
-</html>
 
+</html>

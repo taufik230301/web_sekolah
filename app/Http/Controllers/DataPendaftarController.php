@@ -11,15 +11,14 @@ class DataPendaftarController extends Controller
     {
         if(session()->get('loggin') == true){
 
-            $user_pendaftar = DB::table('user')
+            $user_pendaftars = DB::table('user')
             ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
             ->where('id_user_level', '=', 2)
             ->where('id_status_validasi', '=', 2)
             ->get();
 
-            dd($user_pendaftar);
 
-            return view('admin.data_pendaftar', compact('user_pendaftar'));
+            return view('admin.data_pendaftar', compact('user_pendaftars'));
 
         }else{
             return redirect()

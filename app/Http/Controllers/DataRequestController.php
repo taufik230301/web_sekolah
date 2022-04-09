@@ -9,7 +9,7 @@ class DataRequestController extends Controller
 {
     public function data_request_admin()
     {
-        if(session()->get('loggin') == true){
+    if(session()->get('loggin') == true){
             $user_requests = DB::table('user')
             ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
             ->where('id_user_level', '=', 2)
