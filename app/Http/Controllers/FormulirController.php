@@ -61,6 +61,9 @@ class FormulirController extends Controller
    
            $path_skhun = $request->file('skhun')->store('public/skhun');
 
+           $file_name_ijazah = str_replace("public/ijazah/", "", $path_ijazah );
+           $file_name_skhun = str_replace("public/skhun/", "", $path_skhun );
+
            
 
 
@@ -86,9 +89,8 @@ class FormulirController extends Controller
               'kabupaten' => $kabupaten,
               'provinsi' => $provinsi,
               'kode_pos' => $kode_pos,
-              'ijazah' => $path_ijazah,
-              'skhun' => $path_skhun,
-
+              'ijazah' => $file_name_ijazah,
+              'skhun' => $file_name_skhun,
               'id_status_tagihan' => '1']);
        
         return redirect()

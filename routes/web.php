@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\DataRequestController;
+use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\DataPengumumanController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\CetakDokumenController;
@@ -36,8 +37,9 @@ Route::get('/register_web_admin', [RegisterController::class, 'register_view_adm
 Route::post('/register_proses_admin', [RegisterController::class, 'store_admin']);
 
 Route::get('/admin', [DashboardController::class, 'dashboard_admin'])->name('admin');
-Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
 Route::get('/admin/data_request', [DataRequestController::class, 'data_request_admin']);
+Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
+Route::get('/admin/data_siswa', [DataSiswaController::class, 'data_siswa_admin']);
 Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin'])->name('data_pengumuman_admin');
 Route::post('/admin/data_pengumuman_tambah', [DataPengumumanController::class, 'store_pengumuman']);
 
@@ -51,4 +53,7 @@ Route::get('/admin/send-mail/{email}/{nama_lengkap}/{id}', function ($email,  $n
     return App::call('App\Http\Controllers\DataRequestController::send_mail' , ['email' => $email, 'nama_lengkap' => $nama_lengkap,  'id' => $id]);
 });
 
+Route::get('/admin/download/{file}', function ($file){
+    return Storage::get('storage/ijazah/'.$file);
+});
 
