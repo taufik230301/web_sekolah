@@ -50,14 +50,17 @@
                                         <thead>
                                             <tr>
                                                 <th>NIDN</th>
-                                                <th>Nomor Pendaftaran</th>
                                                 <th>Nama</th>
                                                 <th>Tanggal Lahir</th>
-                                                <th>Email</th>
                                                 <th>Jalur Pendaftaran</th>
                                                 <th>File Ijazah</th>
                                                 <th>File SKHUN</th>
+                                                <th>Jalur Pendafataran</th>
+                                                <th>Nilai IPA</th>
+                                                <th>Nilai IPS</th>
+                                                <th>Kelas</th>
                                                 <th>Nama Panggilan</th>
+                                                <th>Email</th>
                                                 <th>Jenis Kelamin</th>
                                                 <th>Tempat Lahir</th>
                                                 <th>Agama</th>
@@ -68,6 +71,11 @@
                                                 <th>Saudara Tiri</th>
                                                 <th>NIK</th>
                                                 <th>Alamat</th>
+                                                <th>RT/RW</th>
+                                                <th>Kelurahan</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kabupaten</th>
+                                                <th>Provinsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -75,11 +83,9 @@
                                             @foreach($user_siswas as $user_siswa)
                                             <tr>
                                                 <td>{{$user_siswa->nidn}}</td>
-                                                <td>{{$user_siswa->nomor_pendaftaran}}
-                                                </td>
+                                                
                                                 <td>{{$user_siswa->nama_lengkap}}</td>
                                                 <td>{{$user_siswa->tanggal_lahir}}</td>
-                                                <td>{{$user_siswa->email}}</td>
                                                 <td>{{$user_siswa->jalur_pendaftaran}}</td>
                                                 <td>
                                                 <a href="{{asset('/storage/ijazah')}}/{{$user_siswa->ijazah}}" target="_blank">Ijazah</a>
@@ -87,7 +93,13 @@
                                                 <td>
                                                 <a href="{{asset('/storage/skhun')}}/{{$user_siswa->skhun}}" target="_blank">Skhun</a>
                                                 </td>
+                                                
+                                                <td>{{$user_siswa->jalur_pendaftaran}}</td>
+                                                <td>{{$user_siswa->nilai_ipa}}</td>
+                                                <td>{{$user_siswa->nilai_ips}}</td>
+                                                <td>{{$user_siswa->kelas}}</td>
                                                 <td>{{$user_siswa->nama_panggilan}}</td>
+                                                <td>{{$user_siswa->email}}</td>
                                                 <td>{{$user_siswa->jenis_kelamin}}</td>
                                                 <td>{{$user_siswa->tempat_lahir}}</td>
                                                 <td>{{$user_siswa->agama}}</td>
@@ -98,6 +110,11 @@
                                                 <td>{{$user_siswa->saudara_tiri}}</td>
                                                 <td>{{$user_siswa->NIK}}</td>
                                                 <td>{{$user_siswa->alamat}}</td>
+                                                <td>{{$user_siswa->rt_rw}}</td>
+                                                <td>{{$user_siswa->kelurahan}}</td>
+                                                <td>{{$user_siswa->kecamatan}}</td>
+                                                <td>{{$user_siswa->kabupaten}}</td>
+                                                <td>{{$user_siswa->provinsi}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

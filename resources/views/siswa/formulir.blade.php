@@ -37,6 +37,7 @@
             <!-- Main content -->
             <section class="content">
                 <!-- Notifikasi menggunakan flash session data -->
+                
                 @if (session('success'))
                 <div class="alert alert-success" id="success-alert">
                     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -181,15 +182,23 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="nilai_ipa">Nilai IPA</label>
+                            <input type="text" class="form-control" id="nilai_ipa" name="nilai_ipa">
+                        </div>
+                        <div class="form-group">
+                            <label for="nilai_ips">Nilai IPS</label>
+                            <input type="text" class="form-control" id="nilai_ips" name="nilai_ips">
+                        </div>
+                        <div class="form-group">
                             <label for="jalur_pendaftaran">Jalur Pendaftaran : </label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jalur_pendaftaran"
-                                    id="inlineRadio1" value="Zonasi">
+                                <input class="form-check-input" type="radio" name="jalur_pendaftaran" id="inlineRadio1"
+                                    value="Zonasi">
                                 <label class="form-check-label" for="inlineRadio1">Zonasi</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jalur_pendaftaran"
-                                    id="inlineRadio2" value="Prestasi">
+                                <input class="form-check-input" type="radio" name="jalur_pendaftaran" id="inlineRadio2"
+                                    value="Prestasi">
                                 <label class="form-check-label" for="inlineRadio2">Prestasi</label>
                             </div>
                         </div>

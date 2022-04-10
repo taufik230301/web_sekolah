@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class FormulirController extends Controller
 {
@@ -25,10 +26,22 @@ class FormulirController extends Controller
     }
     public function formulir_proses(Request $request)
     {
-        $validatedData = $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'ijazah' => "required|mimes:pdf|max:10000",
             'skhun' => "required|mimes:pdf|max:10000"
-           ]);
+        ]);
+ 
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Tidak Terupload !'
+                ]);
+        }
+
+           
 
         $nama_lengkap = $request->nama_lengkap;
         $nama_panggilan = $request->nama_panggilan;
@@ -51,6 +64,8 @@ class FormulirController extends Controller
         $kode_pos = $request->kode_pos;
         $id = $request->id;
         $jalur_pendaftaran = $request->jalur_pendaftaran;
+        $nilai_ipa = $request->nilai_ipa;
+        $nilai_ips = $request->nilai_ips;
 
        
    
@@ -94,7 +109,9 @@ class FormulirController extends Controller
               'skhun' => $file_name_skhun,
               'id_status_tagihan' => '1',
               'id_status_terdaftar' => '2',
-              'jalur_pendaftaran' => $jalur_pendaftaran ]);
+              'jalur_pendaftaran' => $jalur_pendaftaran,
+              'nilai_ipa' => $nilai_ipa,
+              'nilai_ips' => $nilai_ips]);
        
         return redirect()
         ->back()
