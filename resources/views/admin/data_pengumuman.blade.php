@@ -73,6 +73,8 @@
                                                 <th>Isi Pengumuman</th>
                                                 <th>Nama Penulis</th>
                                                 <th>Tanggal Pengumuman</th>
+                                                <th>Edit Pengumuman</th>
+                                                <th>Hapus Pengumuman</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,7 +86,115 @@
                                                 <td>{{$pengumuman->isi_pengumuman}}</td>
                                                 <td> {{$pengumuman->nama_penulis}}</td>
                                                 <td>{{$pengumuman->tanggal_pengumuman}}</td>
+                                                <td>
+                                                    <div class="table-responsive">
+                                                        <div class="table table-striped table-hover ">
+                                                            <a href="" class="btn btn-primary" data-toggle="modal"
+                                                                data-target="#edit_pengumuman{{$pengumuman->id_pengumuman}}">
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-responsive">
+                                                        <div class="table table-striped table-hover ">
+                                                            <a href="" class="btn btn-primary" data-toggle="modal"
+                                                                data-target="#hapus_pengumuman{{$pengumuman->id_pengumuman}}">
+                                                                <i class="fas fa-trash"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
+
+                                            <!-- Modal Hapus Data pengumuman -->
+                                            <div class="modal fade" id="hapus_pengumuman{{$pengumuman->id_pengumuman}}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data
+                                                                Pengumuman
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form
+                                                                action=""
+                                                                method="post" enctype="multipart/form-data">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="hidden" name="id"
+                                                                            value="{{$pengumuman->id_pengumuman}}" />
+                                                                        <p>Apakah kamu yakin ingin menghapus data
+                                                                            ini?</i></b></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger ripple"
+                                                                        data-dismiss="modal">Tidak</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-success ripple save-category">Ya</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal Edit pengumuman -->
+                                            <div class="modal fade" id="edit_pengumuman{{$pengumuman->id_pengumuman}}"
+                                                tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Edit
+                                                                Pengumuman</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/admin/data_pengumuman_edit" method="POST">
+                                                                @csrf
+                                                                <div class="form-group">
+                                                                    <label for="judul_pengumuman">Judul
+                                                                        Pengumuman</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="judul_pengumuman" name="judul_pengumuman"
+                                                                        aria-describedby="judul_pengumuman">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="isi_pengumuman">Isi Pengumuman</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="isi_pengumuman" name="isi_pengumuman"
+                                                                        aria-describedby="isi_pengumuman">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="nama_penulis">Nama Penulis</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="nama_penulis" name="nama_penulis"
+                                                                        aria-describedby="nama_penulis">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="tanggal_pengumuman">Tanggal
+                                                                        Pengumuman</label>
+                                                                    <input type="date" class="form-control"
+                                                                        id="tanggal_pengumuman"
+                                                                        name="tanggal_pengumuman"
+                                                                        aria-describedby="tanggal_pengumuman">
+                                                                </div>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Submit</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             @endforeach
                                         </tbody>
                                     </table>

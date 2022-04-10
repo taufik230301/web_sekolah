@@ -68,6 +68,7 @@
                                                 <th>Nama</th>
                                                 <th>Kelas</th>
                                                 <th>Asal Sekolah</th>
+                                                <th>Status Terdaftar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -77,6 +78,18 @@
                                                 <td>{{$user_siswa->nidn}}</td>
                                                 <td>{{$user_siswa->nama_lengkap}}</td>
                                                 <td>{{$user_siswa->kelas}}</td>
+                                                <td>{{$user_siswa->sekolah_asal}}</td>
+                                                <td>
+
+                                                  <?php
+                                                  if($user_siswa->id_status_terdaftar == 2 ){?>
+                                                    <i class="fas fa-check"></i>
+                                                  <?php } else{?>
+                                                    <i class="fas fa-times"></i>
+                                                    <?php }
+                                                  ?>
+
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
