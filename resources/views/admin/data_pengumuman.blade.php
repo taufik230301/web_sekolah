@@ -99,7 +99,7 @@
                                                 <td>
                                                     <div class="table-responsive">
                                                         <div class="table table-striped table-hover ">
-                                                            <a href="" class="btn btn-primary" data-toggle="modal"
+                                                            <a href="" class="btn btn-danger" data-toggle="modal"
                                                                 data-target="#hapus_pengumuman{{$pengumuman->id_pengumuman}}">
                                                                 <i class="fas fa-trash"></i>
                                                             </a>

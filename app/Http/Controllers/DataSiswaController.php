@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+
 
 class DataSiswaController extends Controller
 {
@@ -97,5 +99,38 @@ class DataSiswaController extends Controller
             'error' => 'Error,  Data Belum Diverifikasi !'
         ]);
     }
+    }
+
+    public function delete_siswa(Request $request)
+    {
+        $id = $request->id;
+        $ijazah = $request->ijazah;
+        $skhun = $request->skhun;
+
+        try {
+            if(File::exists(public_path('storage/ijazah/'.$ijazah))){
+                File::delete(public_path('storage/ijazah/'.$ijazah));
+                File::delete(public_path('storage/skhun/'.$skhun));
+            }else{
+                dd('File does not exists.');
+            }
+
+            DB::transaction(function () use ($id) {
+                DB::delete("DELETE FROM user WHERE id='$id'");
+                DB::delete("DELETE FROM user_detail WHERE id_user_detail='$id'");
+            });
+                return redirect()
+                    ->route('data_siswa_admin')
+                    ->with([
+                        'success' => 'Anda Berhasil Menghapus Data !'
+                    ]);
+            } catch (\Exception $e) {
+                return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Anda Gagal Dihapus !'
+                ]);
+            }
     }
 }

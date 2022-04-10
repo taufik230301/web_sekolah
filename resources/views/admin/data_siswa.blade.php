@@ -95,6 +95,7 @@
                                                 <th>Provinsi</th>
                                                 <th>Atur Kelas</th>
                                                 <th>Atur Status Data</th>
+                                                <th>Hapus Data</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -170,7 +171,58 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                <td>
+                                                    <div class="table-responsive">
+                                                        <div class="table table-striped table-hover ">
+                                                            <a href="" class="btn btn-danger" data-toggle="modal"
+                                                                data-target="#hapus_siswa{{$user_siswa->id}}">
+                                                                <i class="fas fa-trash"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
+                                            <!-- Modal Hapus Data Siswa -->
+                                            <div class="modal fade" id="hapus_siswa{{$user_siswa->id}}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data
+                                                                Siswa
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/admin/data_siswa_delete" method="post"
+                                                                enctype="multipart/form-data">
+                                                                <div class="row">
+                                                                    @csrf
+                                                                    <div class="col-md-12">
+                                                                        <input type="hidden" name="id"
+                                                                            value="{{$user_siswa->id}}" />
+                                                                        <input type="hidden" name="ijazah"
+                                                                            value="{{$user_siswa->ijazah}}" />
+                                                                        <input type="hidden" name="skhun"
+                                                                            value="{{$user_siswa->skhun}}" />
+                                                                        <p>Apakah kamu yakin ingin menghapus data
+                                                                            ini?</i></b></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger ripple"
+                                                                        data-dismiss="modal">Tidak</button>
+                                                                    <button type="submit"
+                                                                        class="btn btn-success ripple save-category">Ya</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <!-- Modal -->
                                             <div class="modal fade" id="edit_kelas{{$user_siswa->id}}" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
