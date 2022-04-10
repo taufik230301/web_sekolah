@@ -50,6 +50,7 @@ class FormulirController extends Controller
         $provinsi = $request->provinsi;
         $kode_pos = $request->kode_pos;
         $id = $request->id;
+        $jalur_pendaftaran = $request->jalur_pendaftaran;
 
        
    
@@ -91,7 +92,9 @@ class FormulirController extends Controller
               'kode_pos' => $kode_pos,
               'ijazah' => $file_name_ijazah,
               'skhun' => $file_name_skhun,
-              'id_status_tagihan' => '1']);
+              'id_status_tagihan' => '1',
+              'id_status_terdaftar' => '2',
+              'jalur_pendaftaran' => $jalur_pendaftaran ]);
        
         return redirect()
         ->back()

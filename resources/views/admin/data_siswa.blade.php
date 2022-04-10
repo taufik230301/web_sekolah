@@ -55,7 +55,19 @@
                                                 <th>Tanggal Lahir</th>
                                                 <th>Email</th>
                                                 <th>Jalur Pendaftaran</th>
-                                                <th>File</th>
+                                                <th>File Ijazah</th>
+                                                <th>File SKHUN</th>
+                                                <th>Nama Panggilan</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Agama</th>
+                                                <th>Kewarganegaraan</th>
+                                                <th>Status Kekeluargaan</th>
+                                                <th>Anak Ke -</th>
+                                                <th>Saudara Kandung</th>
+                                                <th>Saudara Tiri</th>
+                                                <th>NIK</th>
+                                                <th>Alamat</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -68,10 +80,24 @@
                                                 <td>{{$user_siswa->nama_lengkap}}</td>
                                                 <td>{{$user_siswa->tanggal_lahir}}</td>
                                                 <td>{{$user_siswa->email}}</td>
-                                                <td>{{$user_siswa->ijazah}}</td>
+                                                <td>{{$user_siswa->jalur_pendaftaran}}</td>
                                                 <td>
-                                                <a href="{{asset('/storage/ijazah')}}/{{$user_siswa->ijazah}}" target="_blank">{{ $user_siswa->email}}</a>
+                                                <a href="{{asset('/storage/ijazah')}}/{{$user_siswa->ijazah}}" target="_blank">Ijazah</a>
                                                 </td>
+                                                <td>
+                                                <a href="{{asset('/storage/skhun')}}/{{$user_siswa->skhun}}" target="_blank">Skhun</a>
+                                                </td>
+                                                <td>{{$user_siswa->nama_panggilan}}</td>
+                                                <td>{{$user_siswa->jenis_kelamin}}</td>
+                                                <td>{{$user_siswa->tempat_lahir}}</td>
+                                                <td>{{$user_siswa->agama}}</td>
+                                                <td>{{$user_siswa->kewarganegaraan}}</td>
+                                                <td>{{$user_siswa->status_kekeluargaan}}</td>
+                                                <td>{{$user_siswa->anak_ke}}</td>
+                                                <td>{{$user_siswa->saudara_kandung}}</td>
+                                                <td>{{$user_siswa->saudara_tiri}}</td>
+                                                <td>{{$user_siswa->NIK}}</td>
+                                                <td>{{$user_siswa->alamat}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

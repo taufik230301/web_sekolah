@@ -13,10 +13,12 @@
     <title>Au Register Forms by Colorlib</title>
 
     <!-- Icons font CSS-->
-    <link href="{{ asset('register/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('register/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet"
+        media="all">
     <link href="{{ asset('register/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
     <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+        rel="stylesheet">
 
     <!-- Vendor CSS-->
     <link href="{{ asset('register/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
@@ -28,18 +30,36 @@
 
 <body>
     <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+
         <div class="wrapper wrapper--w680">
+            <!-- Notifikasi menggunakan flash session data -->
+            @if (session('success'))
+            <div class="alert alert-success" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                <strong>{{ session('success') }}
+            </div>
+            @endif
+
+            @if (session('error'))
+            <div class="alert alert-error">
+                <div class="alert alert-danger" id="success-alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>{{ session('error') }}
+                </div>
+            </div>
+            @endif
             <div class="card card-1">
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Daftar Akun</h2>
-                <form method="POST" action="/register_proses">
-                    @csrf
+                    <form method="POST" action="/register_proses">
+                        @csrf
                         <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="Nama Lengkap" name="nama_lengkap">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Nomor Pendaftaran" name="nomor_pendaftaran">
+                            <input class="input--style-1" type="text" placeholder="Nomor Pendaftaran"
+                                name="nomor_pendaftaran">
                         </div>
                         <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="NIDN" name="nidn">

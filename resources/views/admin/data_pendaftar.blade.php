@@ -54,7 +54,6 @@
                                                 <th>Nama</th>
                                                 <th>Tanggal Lahir</th>
                                                 <th>Email</th>
-                                                <th>Jalur Pendaftaran</th>
                                                 <th>Status Terdaftar</th>
                                             </tr>
                                         </thead>
@@ -68,7 +67,6 @@
                                                 <td>{{$user_pendaftar->nama_lengkap}}</td>
                                                 <td>{{$user_pendaftar->tanggal_lahir}}</td>
                                                 <td>{{$user_pendaftar->email}}</td>
-                                                <td>Trident</td>
                                                 <td>
 
                                                   <?php

@@ -13,7 +13,7 @@ class DataSiswaController extends Controller
             $user_siswas = DB::table('user')
             ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
             ->where('id_user_level', '=', 2)
-            ->where('id_status_validasi', '=', 2)
+            ->where('id_status_terdaftar', '=', 2)
             ->get();
         return view('admin.data_siswa', compact('user_siswas'));
     }else{
