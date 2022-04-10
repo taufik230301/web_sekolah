@@ -45,6 +45,7 @@ class FormulirController extends Controller
 
         $nama_lengkap = $request->nama_lengkap;
         $nama_panggilan = $request->nama_panggilan;
+        $sekolah_asal = $request->sekolah_asal;
         $jenis_kelamin = $request->jenis_kelamin;
         $tempat_lahir = $request->tempat_lahir;
         $tanggal_lahir = $request->tanggal_lahir;
@@ -88,6 +89,7 @@ class FormulirController extends Controller
               ->where('id_user_detail', $id)
               ->update(['nama_lengkap' => $nama_lengkap, 
               'nama_panggilan' => $nama_panggilan, 
+              'sekolah_asal' => $sekolah_asal,
               'jenis_kelamin' => $jenis_kelamin, 
               'tempat_lahir' => $tempat_lahir,
               'tanggal_lahir' => $tanggal_lahir,

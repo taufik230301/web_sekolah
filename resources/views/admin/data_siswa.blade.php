@@ -76,6 +76,7 @@
                                                 <th>Kelas</th>
                                                 <th>Status Verifikasi</th>
                                                 <th>Nama Panggilan</th>
+                                                <th>Asal Sekolah</th>
                                                 <th>Email</th>
                                                 <th>Jenis Kelamin</th>
                                                 <th>Tempat Lahir</th>
@@ -132,6 +133,7 @@
                                                     <?php }
                                                   ?></td>
                                                 <td>{{$user_siswa->nama_panggilan}}</td>
+                                                <td>{{$user_siswa->sekolah_asal}}</td>
                                                 <td>{{$user_siswa->email}}</td>
                                                 <td>{{$user_siswa->jenis_kelamin}}</td>
                                                 <td>{{$user_siswa->tempat_lahir}}</td>
