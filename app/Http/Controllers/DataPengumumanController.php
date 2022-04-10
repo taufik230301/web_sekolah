@@ -23,6 +23,21 @@ class DataPengumumanController extends Controller
         }
     }
 
+    public function data_pengumuman_siswa()
+    {
+        if(session()->get('loggin') == true){
+            $pengumumans = DB::table('pengumuman')->get();
+           
+            return view('siswa.data_pengumuman', compact('pengumumans'));
+        }else{
+            return redirect()
+            ->route('login_web')
+            ->with([
+                'error' => 'Sesi Anda berakhir !'
+            ]);
+        }
+    }
+
     public function store_pengumuman(Request $request)
     {
         $judul_pengumuman = $request->judul_pengumuman;

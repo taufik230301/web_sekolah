@@ -27,7 +27,7 @@ use App\Http\Controllers\PublicController;
 //     return view('welcome');
 // });
 
-Route::get('/public_web', [PublicController::class, 'public_view'])->name('public_view');
+Route::get('/', [PublicController::class, 'public_view'])->name('public_view');
 
 Route::get('/login_web', [LoginController::class, 'login_view'])->name('login_web');
 Route::post('/login_proses', [LoginController::class, 'login_proses']);
@@ -54,6 +54,8 @@ Route::get('/siswa', [DashboardController::class, 'dashboard_siswa'])->name('sis
 Route::get('/siswa/formulir', [FormulirController::class, 'formulir_pendaftaran'])->name('formulir_pendaftaran');
 Route::post('/formulir_proses', [FormulirController::class, 'formulir_proses']);
 Route::get('/siswa/cetak_kwitansi', [CetakDokumenController::class, 'cetak_kwitansi']);
+Route::get('/siswa/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_siswa'])->name('data_pengumuman_siswa');
+Route::get('/siswa/data_kelas', [DataSiswaController::class, 'data_kelas_siswa'])->name('data_kelas_siswa');
 
 Route::get('/admin/send-mail/{email}/{nama_lengkap}/{id}', function ($email,  $nama_lengkap, $id) {
    

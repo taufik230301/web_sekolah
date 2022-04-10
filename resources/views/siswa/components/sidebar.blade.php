@@ -43,6 +43,20 @@
                     </a>
                 </li>
 
+                <li class="nav-item" style="<?php echo session()->get('id_status_verifikasi') == '1' ? 'display:none;' : ' ' ?>">
+                    <a href="/siswa/data_pengumuman" class="nav-link">
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p>Pengumuman</p>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="<?php echo session()->get('id_status_verifikasi') == '1' ? 'display:none;' : ' ' ?>">
+                    <a href="/siswa/data_kelas" class="nav-link">
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p>Data Pembagian Kelas</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

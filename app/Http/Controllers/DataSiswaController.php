@@ -25,6 +25,24 @@ class DataSiswaController extends Controller
     }
     }
 
+    public function data_kelas_siswa()
+    {
+    if(session()->get('loggin') == true){
+            $user_siswas = DB::table('user')
+            ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
+            ->where('id_user_level', '=', 2)
+            ->where('id_status_terdaftar', '=', 2)
+            ->get();
+        return view('siswa.data_siswa', compact('user_siswas'));
+    }else{
+        return redirect()
+        ->route('login_web')
+        ->with([
+            'error' => 'Sesi Anda berakhir !'
+        ]);
+    }
+    }
+
     public function update_siswa(Request $request){
         $kelas = $request->kelas;
         $id = $request->id;

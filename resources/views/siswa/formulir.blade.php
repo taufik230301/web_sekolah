@@ -68,6 +68,10 @@
                             <input type="text" class="form-control" id="nama_panggilan" name="nama_panggilan">
                         </div>
                         <div class="form-group">
+                            <label for="sekolah_asal">Sekolah Asal</label>
+                            <input type="text" class="form-control" id="sekolah_asal" name="sekolah_asal">
+                        </div>
+                        <div class="form-group">
                             <label for="jenis_kelamin">Jenis Kelamin : </label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1"
