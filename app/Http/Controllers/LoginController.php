@@ -42,6 +42,7 @@ class LoginController extends Controller
                $request->session()->put('username', $username);
                $request->session()->put('nama_lengkap', $user->nama_lengkap);
                $request->session()->put('id', $user->id);
+               $request->session()->put('id_status_verifikasi', $user->id_status_verifikasi);
                $request->session()->put('loggin', true);
 
                return redirect()

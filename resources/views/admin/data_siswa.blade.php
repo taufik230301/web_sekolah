@@ -36,6 +36,21 @@
 
             <!-- Main content -->
             <section class="content">
+                @if (session('success'))
+                <div class="alert alert-success" id="success-alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>{{ session('success') }}</strong>
+                </div>
+                @endif
+
+                @if (session('error'))
+                <div class="alert alert-error">
+                    <div class="alert alert-danger" id="success-alert">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        <strong>{{ session('error') }}</strong>
+                    </div>
+                </div>
+                @endif
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
@@ -59,6 +74,7 @@
                                                 <th>Nilai IPA</th>
                                                 <th>Nilai IPS</th>
                                                 <th>Kelas</th>
+                                                <th>Status Verifikasi</th>
                                                 <th>Nama Panggilan</th>
                                                 <th>Email</th>
                                                 <th>Jenis Kelamin</th>
@@ -76,6 +92,8 @@
                                                 <th>Kecamatan</th>
                                                 <th>Kabupaten</th>
                                                 <th>Provinsi</th>
+                                                <th>Atur Kelas</th>
+                                                <th>Atur Status Data</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -83,21 +101,36 @@
                                             @foreach($user_siswas as $user_siswa)
                                             <tr>
                                                 <td>{{$user_siswa->nidn}}</td>
-                                                
+
                                                 <td>{{$user_siswa->nama_lengkap}}</td>
                                                 <td>{{$user_siswa->tanggal_lahir}}</td>
                                                 <td>{{$user_siswa->jalur_pendaftaran}}</td>
                                                 <td>
-                                                <a href="{{asset('/storage/ijazah')}}/{{$user_siswa->ijazah}}" target="_blank">Ijazah</a>
+                                                    <a href="{{asset('/storage/ijazah')}}/{{$user_siswa->ijazah}}"
+                                                        target="_blank">Ijazah</a>
                                                 </td>
                                                 <td>
-                                                <a href="{{asset('/storage/skhun')}}/{{$user_siswa->skhun}}" target="_blank">Skhun</a>
+                                                    <a href="{{asset('/storage/skhun')}}/{{$user_siswa->skhun}}"
+                                                        target="_blank">Skhun</a>
                                                 </td>
-                                                
+
                                                 <td>{{$user_siswa->jalur_pendaftaran}}</td>
                                                 <td>{{$user_siswa->nilai_ipa}}</td>
                                                 <td>{{$user_siswa->nilai_ips}}</td>
-                                                <td>{{$user_siswa->kelas}}</td>
+                                                <td> <?php
+                                                  if($user_siswa->kelas == NULL ){?>
+                                                    <i class="fas fa-times"></i>
+                                                    <?php } else{?>
+                                                    {{$user_siswa->kelas}}
+                                                    <?php }
+                                                  ?></td>
+                                                <td> <?php
+                                                  if($user_siswa->id_status_verifikasi == 1 ){?>
+                                                    <i class="fas fa-times"></i>
+                                                    <?php } else{?>
+                                                    <i class="fas fa-check"></i>
+                                                    <?php }
+                                                  ?></td>
                                                 <td>{{$user_siswa->nama_panggilan}}</td>
                                                 <td>{{$user_siswa->email}}</td>
                                                 <td>{{$user_siswa->jenis_kelamin}}</td>
@@ -115,7 +148,93 @@
                                                 <td>{{$user_siswa->kecamatan}}</td>
                                                 <td>{{$user_siswa->kabupaten}}</td>
                                                 <td>{{$user_siswa->provinsi}}</td>
+                                                <td>
+                                                    <div class="table-responsive">
+                                                        <div class="table table-striped table-hover ">
+                                                            <a href="" class="btn btn-primary" data-toggle="modal"
+                                                                data-target="#edit_kelas{{$user_siswa->id}}">
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-responsive">
+                                                        <div class="table table-striped table-hover ">
+                                                            <a href="" class="btn btn-primary" data-toggle="modal"
+                                                                data-target="#edit_status{{$user_siswa->id}}">
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="edit_kelas{{$user_siswa->id}}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Atur Kelas
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="atur_kelas" method="POST">
+                                                                @csrf
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Pilih Kelas</label>
+                                                                    <select class="form-control" name="kelas">
+                                                                        <option value="X IPA 2">X IPA 2</option>
+                                                                    </select>
+                                                                </div>
+                                                                <input type="text" value="{{$user_siswa->id}}" name="id"
+                                                                    hidden>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Submit</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="edit_status{{$user_siswa->id}}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Atur Status
+                                                                Data
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="atur_status_data" method="POST">
+                                                                @csrf
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Pilih Status
+                                                                        Data</label>
+                                                                    <select class="form-control"
+                                                                        name="id_status_verifikasi">
+                                                                        <option value="1">Belum Diverifikasi</option>
+                                                                        <option value="2">Telah Diverifikasi</option>
+                                                                    </select>
+                                                                </div>
+                                                                <input type="text" value="{{$user_siswa->id}}" name="id"
+                                                                    hidden>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Submit</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             @endforeach
                                         </tbody>
                                     </table>

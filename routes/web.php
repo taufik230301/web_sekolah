@@ -10,6 +10,7 @@ use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\CetakDokumenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PublicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ use App\Http\Controllers\RegisterController;
 //     return view('welcome');
 // });
 
+Route::get('/public_web', [PublicController::class, 'public_view'])->name('public_view');
+
 Route::get('/login_web', [LoginController::class, 'login_view'])->name('login_web');
 Route::post('/login_proses', [LoginController::class, 'login_proses']);
 Route::get('/log_out', [LoginController::class, 'log_out'])->name('log_out');
@@ -39,7 +42,11 @@ Route::post('/register_proses_admin', [RegisterController::class, 'store_admin']
 Route::get('/admin', [DashboardController::class, 'dashboard_admin'])->name('admin');
 Route::get('/admin/data_request', [DataRequestController::class, 'data_request_admin']);
 Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
+
 Route::get('/admin/data_siswa', [DataSiswaController::class, 'data_siswa_admin']);
+Route::post('/admin/atur_kelas', [DataSiswaController::class, 'update_siswa']);
+Route::post('/admin/atur_status_data', [DataSiswaController::class, 'update_status_data']);
+
 Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin'])->name('data_pengumuman_admin');
 Route::post('/admin/data_pengumuman_tambah', [DataPengumumanController::class, 'store_pengumuman']);
 

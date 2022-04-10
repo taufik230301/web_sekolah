@@ -107,7 +107,6 @@ class FormulirController extends Controller
               'kode_pos' => $kode_pos,
               'ijazah' => $file_name_ijazah,
               'skhun' => $file_name_skhun,
-              'id_status_tagihan' => '1',
               'id_status_terdaftar' => '2',
               'jalur_pendaftaran' => $jalur_pendaftaran,
               'nilai_ipa' => $nilai_ipa,

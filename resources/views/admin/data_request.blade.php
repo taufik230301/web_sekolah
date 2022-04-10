@@ -68,7 +68,6 @@
                                                 <th>Nomor Pendaftaran</th>
                                                 <th>Nama</th>
                                                 <th>Tanggal Lahir</th>
-                                                <th>Email</th>
                                                 <th>Status Validasi</th>
                                             </tr>
                                         </thead>
@@ -80,7 +79,6 @@
                                                 <td>{{ $user_request->nomor_pendaftaran}}</td>
                                                 <td>{{ $user_request->nama_lengkap}}</td>
                                                 <td>{{ $user_request->tanggal_lahir}}</td>
-                                                <td>{{ $user_request->id_status_validasi}}</td>
                                                 <td>
                                                 <a href="send-mail/{{$user_request->email}}/{{$user_request->nama_lengkap}}/{{$user_request->id}}">{{ $user_request->email}}</a>
                                                 </td>
