@@ -64,6 +64,57 @@ class DataPengumumanController extends Controller
             }
         }
 
+        public function edit_pengumuman(Request $request)
+    {
+        $id_pengumuman = $request->id_pengumuman;
+        $judul_pengumuman = $request->judul_pengumuman;
+        $isi_pengumuman = $request->isi_pengumuman;
+        $nama_penulis = $request->nama_penulis;
+        $tanggal_pengumuman = $request->tanggal_pengumuman;
+
+        try {
+            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman, $id_pengumuman) {
+                DB::update("UPDATE pengumuman SET judul_pengumuman='$judul_pengumuman', isi_pengumuman='$isi_pengumuman', nama_penulis='$nama_penulis', tanggal_pengumuman='$tanggal_pengumuman' WHERE id_pengumuman='$id_pengumuman'");
+            });
+                return redirect()
+                    ->route('data_pengumuman_admin')
+                    ->with([
+                        'success' => 'Anda Berhasil Mengupdate Data !'
+                    ]);
+            } catch (\Exception $e) {
+                return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Anda Gagal Diupdate !'
+                ]);
+            }
+        }
+
+        public function delete_pengumuman(Request $request)
+        {
+            $id_pengumuman = $request->id_pengumuman;
+           
+    
+            try {
+                DB::transaction(function () use ($id_pengumuman) {
+                    DB::update("DELETE FROM pengumuman WHERE id_pengumuman='$id_pengumuman'");
+                });
+                    return redirect()
+                        ->route('data_pengumuman_admin')
+                        ->with([
+                            'success' => 'Anda Berhasil Menghapus Data !'
+                        ]);
+                } catch (\Exception $e) {
+                    return redirect()
+                    ->back()
+                    ->withInput()
+                    ->with([
+                        'error' => 'Error, Data Anda Gagal Dihapus !'
+                    ]);
+                }
+            }
+
         
     
 }

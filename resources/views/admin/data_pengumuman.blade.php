@@ -124,11 +124,12 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <form
-                                                                action=""
+                                                                action="/admin/data_pengumuman_delete"
                                                                 method="post" enctype="multipart/form-data">
                                                                 <div class="row">
+                                                                    @csrf
                                                                     <div class="col-md-12">
-                                                                        <input type="hidden" name="id"
+                                                                        <input type="hidden" name="id_pengumuman"
                                                                             value="{{$pengumuman->id_pengumuman}}" />
                                                                         <p>Apakah kamu yakin ingin menghapus data
                                                                             ini?</i></b></p>
@@ -166,19 +167,19 @@
                                                                         Pengumuman</label>
                                                                     <input type="text" class="form-control"
                                                                         id="judul_pengumuman" name="judul_pengumuman"
-                                                                        aria-describedby="judul_pengumuman">
+                                                                        aria-describedby="judul_pengumuman" value="{{$pengumuman->judul_pengumuman}}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="isi_pengumuman">Isi Pengumuman</label>
                                                                     <input type="text" class="form-control"
                                                                         id="isi_pengumuman" name="isi_pengumuman"
-                                                                        aria-describedby="isi_pengumuman">
+                                                                        aria-describedby="isi_pengumuman" value="{{$pengumuman->isi_pengumuman}}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="nama_penulis">Nama Penulis</label>
                                                                     <input type="text" class="form-control"
                                                                         id="nama_penulis" name="nama_penulis"
-                                                                        aria-describedby="nama_penulis">
+                                                                        aria-describedby="nama_penulis" value="{{$pengumuman->nama_penulis}}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="tanggal_pengumuman">Tanggal
@@ -186,8 +187,9 @@
                                                                     <input type="date" class="form-control"
                                                                         id="tanggal_pengumuman"
                                                                         name="tanggal_pengumuman"
-                                                                        aria-describedby="tanggal_pengumuman">
+                                                                        aria-describedby="tanggal_pengumuman" value="{{$pengumuman->tanggal_pengumuman}}">
                                                                 </div>
+                                                                <input type="text" value="{{$pengumuman->id_pengumuman}}" name="id_pengumuman" hidden>
                                                                 <button type="submit"
                                                                     class="btn btn-primary">Submit</button>
                                                             </form>
