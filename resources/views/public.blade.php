@@ -217,7 +217,7 @@
                         <div class="row">
                             <div class="col-md-6 d-flex align-items-stretch">
                                 <div class="card"
-                                    style='background-image: url("http://127.0.0.1:8000/public/assets/img/more-services-1.jpg");'
+                                    style='background-image: url("http://127.0.0.1:8000/public/assets/img/PASKIBRA.jpg");'
                                     data-aos="fade-up" data-aos-delay="100">
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="">Lobira Duno</a></h5>
@@ -231,7 +231,7 @@
                             </div>
                             <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                                 <div class="card"
-                                    style='background-image: url("http://127.0.0.1:8000/public/assets/img/more-services-2.jpg");'
+                                    style='background-image: url("http://127.0.0.1:8000/public/assets/img/PIK_R.jpg");'
                                     data-aos="fade-up" data-aos-delay="200">
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="">Limere Radses</a></h5>
@@ -246,7 +246,7 @@
                             </div>
                             <div class="col-md-6 d-flex align-items-stretch mt-4">
                                 <div class="card"
-                                    style='background-image: url("http://127.0.0.1:8000/public/assets/img/more-services-3.jpg");'
+                                    style='background-image: url("http://127.0.0.1:8000/public/assets/img/Pramuka.jpg");'
                                     data-aos="fade-up" data-aos-delay="100">
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="">Nive Lodo</a></h5>
