@@ -37,7 +37,7 @@
             <!-- Main content -->
             <section class="content">
                 <!-- Notifikasi menggunakan flash session data -->
-                
+
                 @if (session('success'))
                 <div class="alert alert-success" id="success-alert">
                     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -205,6 +205,24 @@
                                     value="Prestasi">
                                 <label class="form-check-label" for="inlineRadio2">Prestasi</label>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="jalur_pendaftaran">Pilih Ukuran Baju Batik : </label>
+                            <select class="form-control" name="id_baju_batik">
+                                <option value="1">S -  Rp  75.000</option>
+                                <option value="2">M -  Rp  80.000</option>
+                                <option value="3">L -  Rp  85.000</option>
+                                <option value="1">XL - Rp  90.000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="jalur_pendaftaran">Pilih Ukuran Baju Olahraga : </label>
+                            <select class="form-control" name="id_baju_olahraga">
+                                <option value="1">S - Rp 135.000</option>
+                                <option value="2">M - Rp 145.000</option>
+                                <option value="3">L - Rp 155.000</option>
+                                <option value="1">XL - Rp 165.000</option>
+                            </select>
                         </div>
                         <input type="text" value="{{ session()->get('id');}}" name="id" hidden>
                         <button type="submit" class="btn btn-primary">Submit</button>

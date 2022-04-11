@@ -10,8 +10,8 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
-
+    <title>SMA N 1 - Tigapanah</title>
+    <link href="{{ asset('public/assets/img/favicon.png') }}" rel="icon">
     <!-- Icons font CSS-->
     <link href="{{ asset('register/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet"
         media="all">

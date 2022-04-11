@@ -67,6 +67,8 @@ class FormulirController extends Controller
         $jalur_pendaftaran = $request->jalur_pendaftaran;
         $nilai_ipa = $request->nilai_ipa;
         $nilai_ips = $request->nilai_ips;
+        $id_baju_batik = $request->id_baju_batik;
+        $id_baju_olahraga = $request->id_baju_olahraga;
 
        
    
@@ -112,7 +114,9 @@ class FormulirController extends Controller
               'id_status_terdaftar' => '2',
               'jalur_pendaftaran' => $jalur_pendaftaran,
               'nilai_ipa' => $nilai_ipa,
-              'nilai_ips' => $nilai_ips]);
+              'nilai_ips' => $nilai_ips,
+              'id_baju_batik' => $id_baju_batik,
+              'id_baju_olahraga' => $id_baju_olahraga]);
        
         return redirect()
         ->back()
