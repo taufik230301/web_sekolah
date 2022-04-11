@@ -37,7 +37,7 @@
                 </li>
                
                 <li class="nav-item" style="<?php echo session()->get('id_status_verifikasi') == '1' ? 'display:none;' : ' ' ?>">
-                    <a href="/siswa/cetak_kwitansi" class="nav-link">
+                    <a href="/siswa/cetak_kwitansi/{{ session()->get('id');}}" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p>Cetak Kwitansi</p>
                     </a>

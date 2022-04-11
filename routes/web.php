@@ -56,7 +56,14 @@ Route::post('/admin/data_pengumuman_delete', [DataPengumumanController::class, '
 Route::get('/siswa', [DashboardController::class, 'dashboard_siswa'])->name('siswa');
 Route::get('/siswa/formulir', [FormulirController::class, 'formulir_pendaftaran'])->name('formulir_pendaftaran');
 Route::post('/formulir_proses', [FormulirController::class, 'formulir_proses']);
+
 Route::get('/siswa/cetak_kwitansi', [CetakDokumenController::class, 'cetak_kwitansi']);
+
+Route::get('/siswa/cetak_kwitansi/{id}', function ($id) {
+   
+    return App::call('App\Http\Controllers\CetakDokumenController::cetak_kwitansi' , ['id' => $id]);
+});
+
 Route::get('/siswa/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_siswa'])->name('data_pengumuman_siswa');
 Route::get('/siswa/data_kelas', [DataSiswaController::class, 'data_kelas_siswa'])->name('data_kelas_siswa');
 
