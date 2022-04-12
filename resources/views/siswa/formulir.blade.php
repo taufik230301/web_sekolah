@@ -55,7 +55,8 @@
                 @endif
                 <h1 class="m-0 text-center">Formulir Pendaftaran Ulang Siswa Baru</h1>
                 <h2 class="m-0 text-center"> SMA Negeri 1 Tiga Panah</h2>
-                <h4 class="m-0 text-center">Alamat</h4>
+                <h4 class="m-0 text-center">Alamat: JL. Tigapanah No. 121,Mulawari, Tigapanah, Kabupaten Karo, Sumatera
+                    Utara, 22171</h4>
                 <div class="container-fluid">
                     <form action="/formulir_proses" enctype="multipart/form-data" method="POST">
                         @csrf
@@ -209,10 +210,10 @@
                         <div class="form-group">
                             <label for="jalur_pendaftaran">Pilih Ukuran Baju Batik : </label>
                             <select class="form-control" name="id_baju_batik">
-                                <option value="1">S -  Rp  75.000</option>
-                                <option value="2">M -  Rp  80.000</option>
-                                <option value="3">L -  Rp  85.000</option>
-                                <option value="1">XL - Rp  90.000</option>
+                                <option value="1">S - Rp 75.000</option>
+                                <option value="2">M - Rp 80.000</option>
+                                <option value="3">L - Rp 85.000</option>
+                                <option value="1">XL - Rp 90.000</option>
                             </select>
                         </div>
                         <div class="form-group">
