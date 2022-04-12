@@ -53,21 +53,23 @@
                 </div>
                 @endif
                 <div class="container-fluid">
+
+                @foreach($pengumumans as $pengumuman)
                     <div class="card text-center">
                         <div class="card-header">
-                            Featured
+                        PENGUMUMAN
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            <h3>{{$pengumuman->judul_pengumuman}}</h3>
+                            <p class="card-text">{{$pengumuman->isi_pengumuman}}.
                             </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <p class="text-right">Penulis : {{$pengumuman->nama_penulis}}</p>
                         </div>
                         <div class="card-footer text-muted">
-                            2 days ago
+                        Tanggal : {{$pengumuman->tanggal_pengumuman}}
                         </div>
                     </div>
-
+                @endforeach
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
