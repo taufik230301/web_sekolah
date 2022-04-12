@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class FormulirController extends Controller
 {
@@ -12,8 +13,13 @@ class FormulirController extends Controller
     {
 
     if(session()->get('loggin') == true){
-
-        return view('siswa.formulir');
+        $user_siswas = DB::table('user')
+        ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
+        ->where('id_user_level', '=', 2)
+        ->where('id_status_terdaftar', '=', 2)
+        ->where('id', '=', session()->get('id'))
+        ->get();
+        return view('siswa.formulir', compact('user_siswas'));
 
     }else{
         return redirect()
@@ -45,6 +51,7 @@ class FormulirController extends Controller
 
         $nama_lengkap = $request->nama_lengkap;
         $nama_panggilan = $request->nama_panggilan;
+        $no_telp = $request->no_telp;
         $sekolah_asal = $request->sekolah_asal;
         $jenis_kelamin = $request->jenis_kelamin;
         $tempat_lahir = $request->tempat_lahir;
@@ -69,6 +76,10 @@ class FormulirController extends Controller
         $nilai_ips = $request->nilai_ips;
         $id_baju_batik = $request->id_baju_batik;
         $id_baju_olahraga = $request->id_baju_olahraga;
+        $ijazah_old = $request->ijazah_old;
+        $skhun_old = $request->skhun_old;
+
+       
 
        
    
@@ -87,6 +98,7 @@ class FormulirController extends Controller
 
 
        try {
+           
         $affected = DB::table('user_detail')
               ->where('id_user_detail', $id)
               ->update(['nama_lengkap' => $nama_lengkap, 
@@ -117,6 +129,17 @@ class FormulirController extends Controller
               'nilai_ips' => $nilai_ips,
               'id_baju_batik' => $id_baju_batik,
               'id_baju_olahraga' => $id_baju_olahraga]);
+
+              $affected = DB::table('user')
+              ->where('id', $id)
+              ->update(['no_telp' => $no_telp]);
+
+            if(File::exists(public_path('storage/ijazah/'.$ijazah_old))){
+                File::delete(public_path('storage/ijazah/'.$ijazah_old));
+                File::delete(public_path('storage/skhun/'.$skhun_old));
+            }else{
+                dd('File does not exists.');
+            }
        
         return redirect()
         ->back()

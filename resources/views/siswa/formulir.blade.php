@@ -58,6 +58,7 @@
                 <h4 class="m-0 text-center">Alamat: JL. Tigapanah No. 121,Mulawari, Tigapanah, Kabupaten Karo, Sumatera
                     Utara, 22171</h4>
                 <div class="container-fluid">
+                @foreach($user_siswas as $user_siswa)
                     <form action="/formulir_proses" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="form-group">
@@ -67,6 +68,10 @@
                         <div class="form-group">
                             <label for="nama_panggilan">Nama Panggilan</label>
                             <input type="text" class="form-control" id="nama_panggilan" name="nama_panggilan">
+                        </div>
+                        <div class="form-group">
+                            <label for="no_telp">No Telp</label>
+                            <input type="text" class="form-control" id="no_telp" name="no_telp">
                         </div>
                         <div class="form-group">
                             <label for="sekolah_asal">Sekolah Asal</label>
@@ -175,17 +180,13 @@
                         <div class="form-group">
                             <label for="kode_pos">Ijazah</label>
                             <input type="file" class="form-control" id="ijazah" name="ijazah">
-                            @error('file')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                            @enderror
                         </div>
+                        <input type="text" name="ijazah_old" id="ijazah_old" value="{{$user_siswa->ijazah}}" hidden>
                         <div class="form-group">
                             <label for="kode_pos">SKHUN</label>
                             <input type="file" class="form-control" id="skhun" name="skhun">
-                            @error('file')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                            @enderror
                         </div>
+                        <input type="text" name="skhun_old" id="skhun_old" value="{{$user_siswa->skhun}}" hidden>
                         <div class="form-group">
                             <label for="nilai_ipa">Nilai IPA</label>
                             <input type="text" class="form-control" id="nilai_ipa" name="nilai_ipa">
@@ -228,7 +229,7 @@
                         <input type="text" value="{{ session()->get('id');}}" name="id" hidden>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-
+                @endforeach
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
             </section>
