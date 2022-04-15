@@ -293,17 +293,17 @@
                         <div class="info">
                             <div>
                                 <i class="ri-map-pin-line"></i>
-                                <p>A108 Adam Street<br>New York, NY 535022</p>
+                                <p>Alamat: JL. Tigapanah No. 121,Mulawari <br>Tigapanah, Kabupaten Karo <br> Sumatera Utara, 22171</p>
                             </div>
 
                             <div>
                                 <i class="ri-mail-send-line"></i>
-                                <p>info@example.com</p>
+                                <p>smansatu.tigapanah@yahoo.com</p>
                             </div>
 
                             <div>
                                 <i class="ri-phone-line"></i>
-                                <p>+1 5589 55488 55s</p>
+                                <p>+6281376164324</p>
                             </div>
 
                         </div>
