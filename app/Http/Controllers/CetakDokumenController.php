@@ -19,7 +19,7 @@ class CetakDokumenController extends Controller
           
         $pdf = PDF::loadView('siswa.kwitansi', $data);
     
-        return $pdf->download('itsolutionstuff.pdf');
+        return $pdf->download('tagihan_siswa.pdf');
        
     }
 }

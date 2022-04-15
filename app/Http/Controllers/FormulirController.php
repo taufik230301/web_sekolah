@@ -16,7 +16,6 @@ class FormulirController extends Controller
         $user_siswas = DB::table('user')
         ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
         ->where('id_user_level', '=', 2)
-        ->where('id_status_terdaftar', '=', 2)
         ->where('id', '=', session()->get('id'))
         ->get();
         return view('siswa.formulir', compact('user_siswas'));
