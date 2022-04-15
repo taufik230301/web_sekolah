@@ -39,9 +39,9 @@ class DataRequestController extends Controller
               ->update(['id_status_validasi' => '2']);
 
         $details = [
-            'title' => "Mail FROM ".$email,
-            'body' => 'Halo '.$nama_lengkap.' 
-                        Ini Username : '.$username.' dan password : '.$pasword
+            'title' => "Username dan Password Akun Pendaftaran Ulang SMA Negeri 1 Tigapanah ",
+            'body' => 'Halo '.$nama_lengkap.' Silahkan masukan username dan password berikut saat login pada website'. 
+                        'Ini Username : '.$username.' dan password : '.$pasword
         ];
        
         \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
