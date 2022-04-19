@@ -40,8 +40,12 @@ Route::get('/register_web_admin', [RegisterController::class, 'register_view_adm
 Route::post('/register_proses_admin', [RegisterController::class, 'store_admin']);
 
 Route::get('/admin', [DashboardController::class, 'dashboard_admin'])->name('admin');
-Route::get('/admin/data_request', [DataRequestController::class, 'data_request_admin']);
+
+Route::get('/admin/data_request', [DataRequestController::class, 'data_request_admin'])->name('data_request_admin');
+Route::post('/tambah_siswa', [DataRequestController::class, 'tambah_siswa']);
+
 Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
+
 
 Route::get('/admin/data_siswa', [DataSiswaController::class, 'data_siswa_admin'])->name('data_siswa_admin');
 Route::post('/admin/atur_kelas', [DataSiswaController::class, 'update_siswa']);

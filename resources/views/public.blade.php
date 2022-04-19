@@ -279,13 +279,9 @@
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="contact-about">
                             <h3>SMA N 1 Tigapanah</h3>
-                            <p>Jika terdapat pertanyan, kritik maupun saran, berikut sosial media sekolah kami.</p>
-                            <div class="social-links">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <p>SMA Negeri 1 Tiga Panah akan memastikan kamu <br> mendapatkan pengalaman belajar yang
+                            berkualitas.</p>
+                            
                         </div>
                     </div>
 

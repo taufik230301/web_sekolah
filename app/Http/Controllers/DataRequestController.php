@@ -7,6 +7,40 @@ use Illuminate\Support\Facades\DB;
 
 class DataRequestController extends Controller
 {
+
+    public function tambah_siswa(Request $request)
+   {
+
+    //    dd('submitted');
+    // // 
+    $nama_lengkap = $request->nama_lengkap;
+    $nomor_pendaftaran = $request->nomor_pendaftaran;
+    $nidn = $request->nidn;
+    $id = sha1($nomor_pendaftaran.$nidn);
+    
+    
+        try {
+            DB::transaction(function () use ($id, $nomor_pendaftaran, $nidn, $nama_lengkap) {
+                DB::insert("INSERT INTO user(id,id_user_level,id_user_detail) VALUES('$id','2','$id')");
+                DB::insert("INSERT INTO user_detail(id_user_detail, nomor_pendaftaran, nidn, nama_lengkap, id_status_verifikasi, id_status_validasi, id_status_terdaftar) VALUES('$id','$nomor_pendaftaran','$nidn','$nama_lengkap','1','1','1')");
+            });
+                return redirect()
+                    ->route('data_request_admin')
+                    ->with([
+                        'success' => 'Berhasil Dimasukan !'
+                    ]);
+            } catch (\Exception $e) {
+                return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Gagal Dimasukan !'
+                ]);
+            }
+           
+        
+   }
+
     public function data_request_admin()
     {
     if(session()->get('loggin') == true){

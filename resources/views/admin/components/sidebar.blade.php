@@ -32,7 +32,7 @@
                 <li class="nav-item">
                     <a href="/admin/data_request" class="nav-link">
                         <i class="nav-icon fas fa-user text-danger"></i>
-                        <p class="text">Data Request Akun</p>
+                        <p class="text">Data Siswa Terdaftar</p>
                     </a>
                 </li>
                 <li class="nav-item">
