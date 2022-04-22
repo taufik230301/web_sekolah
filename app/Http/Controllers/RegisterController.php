@@ -28,13 +28,20 @@ class RegisterController extends Controller
     $nidn = $request->nidn;
     $tanggal_lahir = $request->tanggal_lahir;
     $email = $request->email;
-    $id = sha1($nomor_pendaftaran.$nidn);
-    
+
+   
     
         try {
-            DB::transaction(function () use ($id, $email, $nomor_pendaftaran, $nidn, $nama_lengkap, $tanggal_lahir) {
-                DB::insert("INSERT INTO user(id,email,id_user_level,id_user_detail) VALUES('$id','$email','2','$id')");
-                DB::insert("INSERT INTO user_detail(id_user_detail, nomor_pendaftaran, nidn, nama_lengkap, tanggal_lahir, id_status_verifikasi, id_status_validasi, id_status_terdaftar) VALUES('$id','$nomor_pendaftaran','$nidn','$nama_lengkap','$tanggal_lahir','1','1','1')");
+            
+            $user = DB::table('user_detail')
+            ->where('nomor_pendaftaran', '=', $nomor_pendaftaran)
+            ->where('nidn', '=', $nidn)
+            ->first();
+            
+            $id = $user->id_user_detail;
+            DB::transaction(function () use ($email, $nomor_pendaftaran, $nidn, $nama_lengkap, $tanggal_lahir, $id) {
+                DB::update("UPDATE user SET email='$email' WHERE id='$id'");
+                DB::update("UPDATE user_detail SET tanggal_lahir='$tanggal_lahir' WHERE nomor_pendaftaran='$nomor_pendaftaran' AND nidn='$nidn'");
             });
                 return redirect()
                     ->route('login_web')
@@ -46,7 +53,7 @@ class RegisterController extends Controller
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Error, Anda Belum Terdaftar !'
+                    'error' => 'Maaf, NIDN anda tidak terdaftar di dalam sistem kami, Hanya pendaftar yang dinyatakan lulus yang dapat melakukan pendaftaran. !'
                 ]);
             }
            

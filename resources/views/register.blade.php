@@ -26,6 +26,9 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('register/css/main.css') }}" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('login/vendor/bootstrap/css/bootstrap.min.css') }}">
+
 </head>
 
 <body>

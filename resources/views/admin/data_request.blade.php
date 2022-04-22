@@ -46,7 +46,7 @@
                 @if (session('success'))
                 <div class="alert alert-success" id="success-alert">
                     <button type="button" class="close" data-dismiss="alert">x</button>
-                    <strong>{{ session('success') }}
+                    <strong>{{ session('success') }}</strong>
                 </div>
                 @endif
 
@@ -54,7 +54,7 @@
                 <div class="alert alert-error">
                     <div class="alert alert-danger" id="success-alert">
                         <button type="button" class="close" data-dismiss="alert">x</button>
-                        <strong>{{ session('error') }}
+                        <strong>{{ session('error') }}</strong>
                     </div>
                 </div>
                 @endif
