@@ -106,8 +106,7 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Atur Status
-                                                                Data
+                                                            <h5 class="modal-title" id="exampleModalLabel">Verifikasi Admin Pantia
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
@@ -115,15 +114,15 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="atur_status_data" method="POST">
+                                                            <form action="atur_verifikasi_admin" method="POST">
                                                                 @csrf
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Pilih Status
                                                                         Data</label>
                                                                     <select class="form-control"
                                                                         name="id_status_verifikasi">
-                                                                        <option value="1">Belum Diverifikasi</option>
-                                                                        <option value="2">Telah Diverifikasi</option>
+                                                                        <option value="0">Belum Diverifikasi</option>
+                                                                        <option value="1">Telah Diverifikasi</option>
                                                                     </select>
                                                                 </div>
                                                                 <input type="text" value="{{$user_panitia->id}}" name="id"

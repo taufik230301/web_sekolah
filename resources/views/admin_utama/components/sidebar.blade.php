@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/data_panitia" class="nav-link">
+                    <a href="/admin_utama/data_panitia" class="nav-link">
                         <i class="nav-icon fas fa-user text-danger"></i>
                         <p class="text">Data Panitia</p>
                     </a>

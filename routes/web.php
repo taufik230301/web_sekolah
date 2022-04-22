@@ -49,7 +49,8 @@ Route::post('/tambah_siswa', [DataRequestController::class, 'tambah_siswa']);
 
 Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
 
-Route::get('/admin/data_panitia', [DataPanitiaController::class, 'data_panitia_admin'])->name('data_panitia_admin');
+Route::get('/admin_utama/data_panitia', [DataPanitiaController::class, 'data_panitia_admin'])->name('data_panitia_admin');
+Route::post('/admin_utama/atur_verifikasi_admin', [DataPanitiaController::class, 'update_verifikasi_admin']);
 
 Route::get('/admin/data_siswa', [DataSiswaController::class, 'data_siswa_admin'])->name('data_siswa_admin');
 Route::post('/admin/atur_kelas', [DataSiswaController::class, 'update_siswa']);
