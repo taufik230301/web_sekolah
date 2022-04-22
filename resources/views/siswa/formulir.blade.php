@@ -62,17 +62,17 @@
                         </div>
                         <div class="col-8">
                             <h1 class="m-0 text-center">Formulir Pendaftaran Ulang Siswa Baru</h1>
-                            
+
                         </div>
                         <div class="col">
-                        <img src="{{asset('public/assets/img/adiwiyata.png')}}" alt="" width="150px">
+                            <img src="{{asset('public/assets/img/adiwiyata.png')}}" alt="" width="150px">
                         </div>
                     </div>
 
                     <div class="container-fluid">
-                       
+
                         @foreach($user_siswas as $user_siswa)
-                     
+
 
                         <form action="/formulir_proses" enctype="multipart/form-data" method="POST">
                             @csrf
@@ -213,15 +213,36 @@
                                 <input type="text" class="form-control" id="kode_pos" name="kode_pos">
                             </div>
                             <div class="form-group">
-                                <label for="kode_pos">Ijazah</label>
+                                <label for="ijazah">Ijazah</label>
                                 <input type="file" class="form-control" id="ijazah" name="ijazah">
                             </div>
                             <input type="text" name="ijazah_old" id="ijazah_old" value="{{$user_siswa->ijazah}}" hidden>
                             <div class="form-group">
-                                <label for="kode_pos">SKHUN</label>
+                                <label for="skhun">SKHUN</label>
                                 <input type="file" class="form-control" id="skhun" name="skhun">
                             </div>
                             <input type="text" name="skhun_old" id="skhun_old" value="{{$user_siswa->skhun}}" hidden>
+                            <div class="form-group">
+                                <label for="kk">Kartu Keluarga</label>
+                                <input type="file" class="form-control" id="kk" name="kk">
+                            </div>
+                            <input type="text" name="kk_old" id="kk_old" value="{{$user_siswa->kk}}" hidden>
+                            <div class="form-group">
+                                <label for="akta_kelahiran">Akta Kelahiran</label>
+                                <input type="file" class="form-control" id="akta_kelahiran" name="akta_kelahiran">
+                            </div>
+                            <input type="text" name="akta_kelahiran_old" id="akta_kelahiran_old"
+                                value="{{$user_siswa->akta_kelahiran}}" hidden>
+                            <div class="form-group">
+                                <label for="foto">Foto</label>
+                                <input type="file" class="form-control" id="foto" name="foto">
+                            </div>
+                            <input type="text" name="foto_old" id="foto_old" value="{{$user_siswa->foto}}" hidden>
+                            <div class="form-group">
+                                <label for="surat_keterangan_lulus">Surat Keterangan Lulus Sementara</label>
+                                <input type="file" class="form-control" id="surat_keterangan_lulus" name="surat_keterangan_lulus">
+                            </div>
+                            <input type="text" name="surat_keterangan_lulus_old" id="surat_keterangan_lulus_old" value="{{$user_siswa->surat_keterangan_lulus}}" hidden>
                             <div class="form-group">
                                 <label for="nilai_ipa">Nilai IPA</label>
                                 <input type="text" class="form-control" id="nilai_ipa" name="nilai_ipa">
@@ -230,6 +251,21 @@
                                 <label for="nilai_ips">Nilai IPS</label>
                                 <input type="text" class="form-control" id="nilai_ips" name="nilai_ips">
                             </div>
+                            <div class="form-group">
+                                <label for="nilai_matematika">Nilai Matematika</label>
+                                <input type="text" class="form-control" id="nilai_matematika" name="nilai_matematika">
+                            </div>
+                            <div class="form-group">
+                                <label for="nilai_bahasa_inggris">Nilai Bahasa Inggris</label>
+                                <input type="text" class="form-control" id="nilai_bahasa_inggris"
+                                    name="nilai_bahasa_inggris">
+                            </div>
+                            <div class="form-group">
+                                <label for="nilai_bahasa_indonesia">Nilai Bahasa Indonesia</label>
+                                <input type="text" class="form-control" id="nilai_bahasa_indonesia"
+                                    name="nilai_bahasa_indonesia">
+                            </div>
+
                             <div class="form-group">
                                 <label for="jalur_pendaftaran">Jalur Pendaftaran : </label>
                                 <div class="form-check form-check-inline">
