@@ -62,6 +62,11 @@ Route::post('/admin/data_pengumuman_tambah', [DataPengumumanController::class, '
 Route::post('/admin/data_pengumuman_edit', [DataPengumumanController::class, 'edit_pengumuman']);
 Route::post('/admin/data_pengumuman_delete', [DataPengumumanController::class, 'delete_pengumuman']);
 
+Route::get('/admin_utama/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin_utama'])->name('data_pengumuman_admin_utama');
+Route::post('/admin_utama/data_pengumuman_tambah', [DataPengumumanController::class, 'store_pengumuman_admin_utama']);
+Route::post('/admin_utama/data_pengumuman_edit', [DataPengumumanController::class, 'edit_pengumuman_admin_utama']);
+Route::post('/admin_utama/data_pengumuman_delete', [DataPengumumanController::class, 'delete_pengumuman_admin_utama']);
+
 Route::get('/siswa', [DashboardController::class, 'dashboard_siswa'])->name('siswa');
 Route::get('/siswa/formulir', [FormulirController::class, 'formulir_pendaftaran'])->name('formulir_pendaftaran');
 Route::post('/formulir_proses', [FormulirController::class, 'formulir_proses']);
