@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('admin.components.header')
+@include('admin_utama.components.header')
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
 
 
-        @include('admin.components.navbar')
+        @include('admin_utama.components.navbar')
 
-        @include('admin.components.sidebar')
+        @include('admin_utama.components.sidebar')
 
 
 
@@ -339,7 +339,7 @@
         </div>
         <!-- /.content-wrapper -->
 
-        @include('admin.components.footer')
+        @include('admin_utama.components.footer')
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -349,7 +349,7 @@
     </div>
     <!-- ./wrapper -->
 
-    @include('admin.components.js')
+    @include('admin_utama.components.js')
 
 </body>
 

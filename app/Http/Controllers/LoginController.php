@@ -28,16 +28,26 @@ class LoginController extends Controller
          if($user->password == $password){
 
             if($user->id_user_level == 1){
-               $request->session()->put('username', $user->username);
-               $request->session()->put('nama_lengkap', $user->nama_lengkap);
-               $request->session()->put('id', $user->id);
-               $request->session()->put('loggin', true);
+                  if($user->is_active == 1){
 
-            return redirect()
-                    ->route('admin')
-                    ->with([
-                        'success' => 'Anda Berhasil Masuk !'
-                    ]);
+                     $request->session()->put('username', $user->username);
+                     $request->session()->put('nama_lengkap', $user->nama_lengkap);
+                     $request->session()->put('id', $user->id);
+                     $request->session()->put('loggin', true);
+
+                     return redirect()
+                           ->route('admin')
+                           ->with([
+                                 'success' => 'Anda Berhasil Masuk !'
+                           ]);
+                    }else{
+                     return redirect()
+                     ->route('login_web')
+                     ->with([
+                         'error' => 'Akun Anda Belum Aktif !'
+                     ]);
+                    }
+
             }else if($user->id_user_level == 2){
                $request->session()->put('username', $username);
                $request->session()->put('nama_lengkap', $user->nama_lengkap);
@@ -50,6 +60,17 @@ class LoginController extends Controller
                        ->with([
                            'success' => 'Anda Berhasil Masuk !'
                        ]);
+            }else if($user->id_user_level == 3){
+               $request->session()->put('username', $user->username);
+               $request->session()->put('nama_lengkap', $user->nama_lengkap);
+               $request->session()->put('id', $user->id);
+               $request->session()->put('loggin', true);
+
+            return redirect()
+                    ->route('admin_utama')
+                    ->with([
+                        'success' => 'Anda Berhasil Masuk !'
+                    ]);
             }else{
                return redirect()
                ->route('login_web')

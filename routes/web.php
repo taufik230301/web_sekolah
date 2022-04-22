@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\DataRequestController;
 use App\Http\Controllers\DataSiswaController;
+use App\Http\Controllers\DataPanitiaController;
 use App\Http\Controllers\DataPengumumanController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\CetakDokumenController;
@@ -41,11 +42,14 @@ Route::post('/register_proses_admin', [RegisterController::class, 'store_admin']
 
 Route::get('/admin', [DashboardController::class, 'dashboard_admin'])->name('admin');
 
+Route::get('/admin_utama', [DashboardController::class, 'dashboard_admin_utama'])->name('admin_utama');
+
 Route::get('/admin/data_request', [DataRequestController::class, 'data_request_admin'])->name('data_request_admin');
 Route::post('/tambah_siswa', [DataRequestController::class, 'tambah_siswa']);
 
 Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
 
+Route::get('/admin/data_panitia', [DataPanitiaController::class, 'data_panitia_admin'])->name('data_panitia_admin');
 
 Route::get('/admin/data_siswa', [DataSiswaController::class, 'data_siswa_admin'])->name('data_siswa_admin');
 Route::post('/admin/atur_kelas', [DataSiswaController::class, 'update_siswa']);
