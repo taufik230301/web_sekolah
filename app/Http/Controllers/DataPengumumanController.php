@@ -23,6 +23,21 @@ class DataPengumumanController extends Controller
         }
     }
 
+    public function data_pengumuman_admin_utama()
+    {
+        if(session()->get('loggin') == true){
+            $pengumumans = DB::table('pengumuman')->get();
+           
+            return view('admin_utama.data_pengumuman', compact('pengumumans'));
+        }else{
+            return redirect()
+            ->route('login_web')
+            ->with([
+                'error' => 'Sesi Anda berakhir !'
+            ]);
+        }
+    }
+
     public function data_pengumuman_siswa()
     {
         if(session()->get('loggin') == true){
@@ -116,20 +131,7 @@ class DataPengumumanController extends Controller
                 }
             }
  
-            public function data_pengumuman_admin_utama()
-    {
-        if(session()->get('loggin') == true){
-            $pengumumans = DB::table('pengumuman')->get();
-           
-            return view('admin.data_pengumuman', compact('pengumumans'));
-        }else{
-            return redirect()
-            ->route('login_web')
-            ->with([
-                'error' => 'Sesi Anda berakhir !'
-            ]);
-        }
-    }
+         
 
     
     public function store_pengumuman_admin_utama(Request $request)

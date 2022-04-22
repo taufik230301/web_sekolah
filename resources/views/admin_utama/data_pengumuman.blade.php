@@ -123,7 +123,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="/admin/data_pengumuman_delete" method="post"
+                                                            <form action="/admin_utama/data_pengumuman_delete" method="post"
                                                                 enctype="multipart/form-data">
                                                                 <div class="row">
                                                                     @csrf
@@ -159,7 +159,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="/admin/data_pengumuman_edit" method="POST">
+                                                            <form action="/admin_utama/data_pengumuman_edit" method="POST">
                                                                 @csrf
                                                                 <div class="form-group">
                                                                     <label for="judul_pengumuman">Judul
@@ -222,7 +222,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="/admin/data_pengumuman_tambah" method="POST">
+                                    <form action="/admin_utama/data_pengumuman_tambah" method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <label for="judul_pengumuman">Judul Pengumuman</label>
