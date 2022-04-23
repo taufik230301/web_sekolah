@@ -152,11 +152,21 @@ class DataSiswaController extends Controller
         $id = $request->id;
         $ijazah = $request->ijazah;
         $skhun = $request->skhun;
+        $kk = $request->kk;
+        $akta_kelahiran = $request->akta_kelahiran;
+        $foto = $request->foto;
+        $surat_keterangan_lulus = $request->surat_keterangan_lulus;
 
+        
+        
         try {
             if(File::exists(public_path('storage/ijazah/'.$ijazah))){
                 File::delete(public_path('storage/ijazah/'.$ijazah));
                 File::delete(public_path('storage/skhun/'.$skhun));
+                File::delete(public_path('storage/kk/'.$kk));
+                File::delete(public_path('storage/akta_kelahiran/'.$akta_kelahiran));
+                File::delete(public_path('storage/foto/'.$foto));
+                File::delete(public_path('storage/surat_keterangan_lulus/'.$surat_keterangan_lulus));
             }else{
                 dd('File does not exists.');
             }
@@ -179,4 +189,49 @@ class DataSiswaController extends Controller
                 ]);
             }
     }
+
+    public function delete_siswa_admin_utama(Request $request)
+    {
+        $id = $request->id;
+        $ijazah = $request->ijazah;
+        $skhun = $request->skhun;
+        $kk = $request->kk;
+        $akta_kelahiran = $request->akta_kelahiran;
+        $foto = $request->foto;
+        $surat_keterangan_lulus = $request->surat_keterangan_lulus;
+
+        // echo dd(public_path('storage/ijazah/'.$ijazah));
+        // die();
+        try {
+            if(File::exists(public_path('storage/ijazah/'.$ijazah))){
+                File::delete(public_path('storage/ijazah/'.$ijazah));
+                File::delete(public_path('storage/skhun/'.$skhun));
+                File::delete(public_path('storage/kk/'.$kk));
+                File::delete(public_path('storage/akta_kelahiran/'.$akta_kelahiran));
+                File::delete(public_path('storage/foto/'.$foto));
+                File::delete(public_path('storage/surat_keterangan_lulus/'.$surat_keterangan_lulus));
+            }else{
+                dd('File does not exists.');
+            }
+
+            DB::transaction(function () use ($id) {
+                DB::delete("DELETE FROM user WHERE id='$id'");
+                DB::delete("DELETE FROM user_detail WHERE id_user_detail='$id'");
+            });
+                return redirect()
+                    ->route('data_siswa_admin_utama')
+                    ->with([
+                        'success' => 'Anda Berhasil Menghapus Data !'
+                    ]);
+            } catch (\Exception $e) {
+                return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Anda Gagal Dihapus !'
+                ]);
+            }
+    }
+
+    
 }

@@ -240,6 +240,15 @@
                                                                             value="{{$user_siswa->ijazah}}" />
                                                                         <input type="hidden" name="skhun"
                                                                             value="{{$user_siswa->skhun}}" />
+                                                                        <input type="hidden" name="kk"
+                                                                            value="{{$user_siswa->kk}}" />
+                                                                        <input type="hidden" name="akta_kelahiran"
+                                                                            value="{{$user_siswa->akta_kelahiran}}" />
+                                                                        <input type="hidden" name="foto"
+                                                                            value="{{$user_siswa->foto}}" />
+                                                                        <input type="hidden"
+                                                                            name="surat_keterangan_lulus"
+                                                                            value="{{$user_siswa->surat_keterangan_lulus}}" />
                                                                         <p>Apakah kamu yakin ingin menghapus data
                                                                             ini?</i></b></p>
                                                                     </div>
@@ -274,7 +283,16 @@
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Pilih Kelas</label>
                                                                     <select class="form-control" name="kelas">
+                                                                        <option value="X IPA 1">X IPA 1</option>
                                                                         <option value="X IPA 2">X IPA 2</option>
+                                                                        <option value="X IPA 3">X IPA 3</option>
+                                                                        <option value="X IPA 4">X IPA 4</option>
+                                                                        <option value="X IPA 5">X IPA 5</option>
+                                                                        <option value="X IPS 1">X IPS 1</option>
+                                                                        <option value="X IPS 2">X IPS 2</option>
+                                                                        <option value="X IPS 3">X IPS 3</option>
+                                                                        <option value="X IPS 4">X IPS 4</option>
+                                                                        <option value="X IPS 5">X IPS 5</option>
                                                                     </select>
                                                                 </div>
                                                                 <input type="text" value="{{$user_siswa->id}}" name="id"

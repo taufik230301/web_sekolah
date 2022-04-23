@@ -229,7 +229,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="/admin/data_siswa_delete" method="post"
+                                                            <form action="/admin_utama/data_siswa_delete" method="post"
                                                                 enctype="multipart/form-data">
                                                                 <div class="row">
                                                                     @csrf
@@ -240,6 +240,15 @@
                                                                             value="{{$user_siswa->ijazah}}" />
                                                                         <input type="hidden" name="skhun"
                                                                             value="{{$user_siswa->skhun}}" />
+                                                                        <input type="hidden" name="kk"
+                                                                            value="{{$user_siswa->kk}}" />
+                                                                        <input type="hidden" name="akta_kelahiran"
+                                                                            value="{{$user_siswa->akta_kelahiran}}" />
+                                                                        <input type="hidden" name="foto"
+                                                                            value="{{$user_siswa->foto}}" />
+                                                                        <input type="hidden"
+                                                                            name="surat_keterangan_lulus"
+                                                                            value="{{$user_siswa->surat_keterangan_lulus}}" />
                                                                         <p>Apakah kamu yakin ingin menghapus data
                                                                             ini?</i></b></p>
                                                                     </div>
