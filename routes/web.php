@@ -57,6 +57,10 @@ Route::post('/admin/atur_kelas', [DataSiswaController::class, 'update_siswa']);
 Route::post('/admin/atur_status_data', [DataSiswaController::class, 'update_status_data']);
 Route::post('/admin/data_siswa_delete', [DataSiswaController::class, 'delete_siswa']);
 
+Route::get('/admin_utama/data_siswa', [DataSiswaController::class, 'data_siswa_admin_utama'])->name('data_siswa_admin_utama');
+Route::post('/admin_utama/atur_kelas', [DataSiswaController::class, 'update_siswa_admin_utama']);
+Route::post('/admin_utama/atur_status_data', [DataSiswaController::class, 'update_status_data_admin_utama']);
+
 Route::get('/admin/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_admin'])->name('data_pengumuman_admin');
 Route::post('/admin/data_pengumuman_tambah', [DataPengumumanController::class, 'store_pengumuman']);
 Route::post('/admin/data_pengumuman_edit', [DataPengumumanController::class, 'edit_pengumuman']);

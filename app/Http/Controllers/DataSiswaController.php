@@ -27,6 +27,24 @@ class DataSiswaController extends Controller
     }
     }
 
+    public function data_siswa_admin_utama()
+    {
+    if(session()->get('loggin') == true){
+            $user_siswas = DB::table('user')
+            ->join('user_detail', 'user.id', '=', 'user_detail.id_user_detail')
+            ->where('id_user_level', '=', 2)
+            ->where('id_status_terdaftar', '=', 2)
+            ->get();
+        return view('admin_utama.data_siswa', compact('user_siswas'));
+    }else{
+        return redirect()
+        ->route('login_web')
+        ->with([
+            'error' => 'Sesi Anda berakhir !'
+        ]);
+    }
+    }
+
     public function data_kelas_siswa()
     {
     if(session()->get('loggin') == true){
@@ -73,7 +91,35 @@ class DataSiswaController extends Controller
     }
     }
 
-    public function update_status_data(Request $request){
+    public function update_siswa_admin_utama(Request $request){
+        $kelas = $request->kelas;
+        $id = $request->id;
+
+       try {
+        $affected = DB::table('user_detail')
+              ->where('id_user_detail', $id)
+              ->update([
+              'kelas' => $kelas
+              ]);
+       
+        return redirect()
+        ->back()
+        ->withInput()
+        ->with([
+            'success' => 'Sukses, Kelas Telah Ditambahkan !'
+        ]);
+
+    } catch (\Exception $e) {
+        return redirect()
+        ->back()
+        ->withInput()
+        ->with([
+            'error' => 'Error,  Kelas Tidak Ditambahkan !'
+        ]);
+    }
+    }
+
+    public function update_status_data_admin_utama(Request $request){
         $id_status_verifikasi = $request->id_status_verifikasi;
         $id = $request->id;
 

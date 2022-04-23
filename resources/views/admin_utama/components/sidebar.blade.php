@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/data_siswa" class="nav-link">
+                    <a href="/admin_utama/data_siswa" class="nav-link">
                         <i class="nav-icon fas fa-user text-danger"></i>
                         <p class="text">Data Siswa</p>
                     </a>
