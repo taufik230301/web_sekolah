@@ -89,6 +89,25 @@ class FormulirController extends Controller
         $foto_old = $request->foto_old;
         $surat_keterangan_lulus_old = $request->surat_keterangan_lulus_old;
 
+        $nama_ayah = $request->nama_ayah;
+        $tempat_lahir_ayah = $request->tempat_lahir_ayah;
+        $tanggal_lahir_ayah = $request->tanggal_lahir_ayah;
+        $agama_ayah = $request->agama_ayah;
+        $pendidikan_ayah = $request->pendidikan_ayah;
+        $pekerjaan_ayah = $request->pekerjaan_ayah;
+        $warga_negara_ayah = $request->warga_negara_ayah;
+        $nomor_telepon_ayah = $request->nomor_telepon_ayah;
+        $pendapatan_ayah = $request->pendapatan_ayah;
+        $nama_ibu = $request->nama_ibu;
+        $tempat_lahir_ibu = $request->tempat_lahir_ibu;
+        $tanggal_lahir_ibu = $request->tanggal_lahir_ibu;
+        $agama_ibu = $request->agama_ibu;
+        $pendidikan_ibu = $request->pendidikan_ibu;
+        $pekerjaan_ibu = $request->pekerjaan_ibu;
+        $warga_negara_ibu = $request->warga_negara_ibu;
+        $nomor_telepon_ibu = $request->nomor_telepon_ibu;
+        $pendapatan_ibu = $request->pendapatan_ibu;
+
        
 
        
@@ -165,7 +184,24 @@ class FormulirController extends Controller
               'nilai_bahasa_inggris' => $nilai_bahasa_inggris,
               'nilai_bahasa_indonesia' => $nilai_bahasa_indonesia,
               'id_baju_batik' => $id_baju_batik,
-              'id_baju_olahraga' => $id_baju_olahraga]);
+              'nama_ayah' => $nama_ayah,
+              'tempat_lahir_ayah' => $tempat_lahir_ayah,
+              'tanggal_lahir_ayah' => $tanggal_lahir_ayah,
+              'agama_ayah' => $agama_ayah,
+              'pendidikan_ayah' => $pendidikan_ayah,
+              'pekerjaan_ayah' => $pekerjaan_ayah,
+              'warga_negara_ayah' => $warga_negara_ayah,
+              'nomor_telepon_ayah' => $nomor_telepon_ayah,
+              'pendapatan_ayah' => $pendapatan_ayah,
+              'nama_ibu' => $nama_ibu,
+              'tempat_lahir_ibu' => $tempat_lahir_ibu,
+              'tanggal_lahir_ibu' => $tanggal_lahir_ibu,
+              'agama_ibu' => $agama_ibu,
+              'pendidikan_ibu' => $pendidikan_ibu,
+              'pekerjaan_ibu' => $pekerjaan_ibu,
+              'warga_negara_ibu' => $warga_negara_ibu,
+              'nomor_telepon_ibu' => $nomor_telepon_ibu,
+              'pendapatan_ibu' => $pendapatan_ibu]);
 
               $affected = DB::table('user')
               ->where('id', $id)

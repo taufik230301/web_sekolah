@@ -240,9 +240,11 @@
                             <input type="text" name="foto_old" id="foto_old" value="{{$user_siswa->foto}}" hidden>
                             <div class="form-group">
                                 <label for="surat_keterangan_lulus">Surat Keterangan Lulus Sementara</label>
-                                <input type="file" class="form-control" id="surat_keterangan_lulus" name="surat_keterangan_lulus">
+                                <input type="file" class="form-control" id="surat_keterangan_lulus"
+                                    name="surat_keterangan_lulus">
                             </div>
-                            <input type="text" name="surat_keterangan_lulus_old" id="surat_keterangan_lulus_old" value="{{$user_siswa->surat_keterangan_lulus}}" hidden>
+                            <input type="text" name="surat_keterangan_lulus_old" id="surat_keterangan_lulus_old"
+                                value="{{$user_siswa->surat_keterangan_lulus}}" hidden>
                             <div class="form-group">
                                 <label for="nilai_ipa">Nilai IPA</label>
                                 <input type="text" class="form-control" id="nilai_ipa" name="nilai_ipa">
@@ -296,6 +298,144 @@
                                     <option value="3">L - Rp 155.000</option>
                                     <option value="1">XL - Rp 165.000</option>
                                 </select>
+                            </div>
+                            <br>
+                            <h3>Data Ayah Kandung/Tiri</h3>
+                            <br>
+                            <div class="form-group">
+                                <label for="nama_ayah">Nama Ayah</label>
+                                <input type="text" class="form-control" id="nama_ayah" name="nama_ayah">
+                            </div>
+                            <div class="form-group">
+                                <label for="tempat_lahir_ayah">Tempat Lahir</label>
+                                <input type="text" class="form-control" id="tempat_lahir_ayah" name="tempat_lahir_ayah">
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal_lahir_ayah">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="tanggal_lahir_ayah"
+                                    name="tanggal_lahir_ayah">
+                            </div>
+                            <div class="form-group">
+                                <label for="agama_ayah">Agama : </label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ayah" id="inlineRadio1"
+                                        value="Kristen">
+                                    <label class="form-check-label" for="inlineRadio1">Kristen</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ayah" id="inlineRadio1"
+                                        value="Khatolik">
+                                    <label class="form-check-label" for="inlineRadio1">Khatolik</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ayah" id="inlineRadio2"
+                                        value="Islam">
+                                    <label class="form-check-label" for="inlineRadio2">Islam</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ayah" id="inlineRadio1"
+                                        value="Budha">
+                                    <label class="form-check-label" for="inlineRadio1">Budha</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ayah" id="inlineRadio1"
+                                        value="Hindu">
+                                    <label class="form-check-label" for="inlineRadio1">Hindu</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ayah" id="inlineRadio1"
+                                        value="Kong Hu Cu">
+                                    <label class="form-check-label" for="inlineRadio1">Kong Hu Cu</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pendidikan_ayah">Pendidikan</label>
+                                <input type="text" class="form-control" id="pendidikan_ayah" name="pendidikan_ayah">
+                            </div>
+                            <div class="form-group">
+                                <label for="pekerjaan_ayah">Pekerjaan</label>
+                                <input type="text" class="form-control" id="pekerjaan_ayah" name="pekerjaan_ayah">
+                            </div>
+                            <div class="form-group">
+                                <label for="warga_negara_ayah">Warga Negara</label>
+                                <input type="text" class="form-control" id="warga_negara_ayah" name="warga_negara_ayah">
+                            </div>
+                            <div class="form-group">
+                                <label for="nomor_telepon_ayah">Nomor Telepon Ayah</label>
+                                <input type="text" class="form-control" id="nomor_telepon_ayah" name="nomor_telepon_ayah">
+                            </div>
+                            <div class="form-group">
+                                <label for="pendapatan_ayah">Pendapatan Ayah</label>
+                                <input type="text" class="form-control" id="pendapatan_ayah" name="pendapatan_ayah">
+                            </div>
+                            <br>
+                            <h3>Data Ibu Kandung/Tiri</h3>
+                            <br>
+                            <div class="form-group">
+                                <label for="nama_ibu">Nama Ibu</label>
+                                <input type="text" class="form-control" id="nama_ibu" name="nama_ibu">
+                            </div>
+                            <div class="form-group">
+                                <label for="tempat_lahir_ibu">Tempat Lahir</label>
+                                <input type="text" class="form-control" id="tempat_lahir_ibu" name="tempat_lahir_ibu">
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal_lahir_ibu">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="tanggal_lahir_ibu"
+                                    name="tanggal_lahir_ibu">
+                            </div>
+                            <div class="form-group">
+                                <label for="agama_ibu">Agama : </label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ibu" id="inlineRadio1"
+                                        value="Kristen">
+                                    <label class="form-check-label" for="inlineRadio1">Kristen</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ibu" id="inlineRadio1"
+                                        value="Khatolik">
+                                    <label class="form-check-label" for="inlineRadio1">Khatolik</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ibu" id="inlineRadio2"
+                                        value="Islam">
+                                    <label class="form-check-label" for="inlineRadio2">Islam</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ibu" id="inlineRadio1"
+                                        value="Budha">
+                                    <label class="form-check-label" for="inlineRadio1">Budha</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ibu" id="inlineRadio1"
+                                        value="Hindu">
+                                    <label class="form-check-label" for="inlineRadio1">Hindu</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="agama_ibu" id="inlineRadio1"
+                                        value="Kong Hu Cu">
+                                    <label class="form-check-label" for="inlineRadio1">Kong Hu Cu</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pendidikan_ibu">Pendidikan</label>
+                                <input type="text" class="form-control" id="pendidikan_ibu" name="pendidikan_ibu">
+                            </div>
+                            <div class="form-group">
+                                <label for="pekerjaan_ibu">Pekerjaan</label>
+                                <input type="text" class="form-control" id="pekerjaan_ibu" name="pekerjaan_ibu">
+                            </div>
+                            <div class="form-group">
+                                <label for="warga_negara_ibu">Warga Negara</label>
+                                <input type="text" class="form-control" id="warga_negara_ibu" name="warga_negara_ibu">
+                            </div>
+                            <div class="form-group">
+                                <label for="nomor_telepon_ibu">Nomor Telepon</label>
+                                <input type="text" class="form-control" id="nomor_telepon_ibu" name="nomor_telepon_ibu">
+                            </div>
+                            <div class="form-group">
+                                <label for="pendapatan_ibu">Pendapatan</label>
+                                <input type="text" class="form-control" id="pendapatan_ibu" name="pendapatan_ibu">
                             </div>
                             <input type="text" value="{{ session()->get('id');}}" name="id" hidden>
                             <button type="submit" class="btn btn-primary">Submit</button>
