@@ -58,20 +58,20 @@
                     <form method="POST" action="/register_proses">
                         @csrf
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Nama Lengkap" name="nama_lengkap">
+                            <input class="input--style-1" type="text" placeholder="Nama Lengkap" name="nama_lengkap" required>
                         </div>
                         <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="Nomor Pendaftaran"
-                                name="nomor_pendaftaran">
+                                name="nomor_pendaftaran" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="NIDN" name="nidn">
+                            <input class="input--style-1" type="text" placeholder="NIDN" name="nidn" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="date" placeholder="Tanggal Lahir" name="tanggal_lahir">
+                            <input class="input--style-1" type="date" placeholder="Tanggal Lahir" name="tanggal_lahir" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Email" name="email">
+                            <input class="input--style-1" type="text" placeholder="Email" name="email" required>
                         </div>
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Submit</button>

@@ -24,7 +24,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="/admin" class="nav-link">
+                    <a href="/admin_utama" class="nav-link">
                         <i class="nav-icon fas fa-circle text-danger"></i>
                         <p class="text">Dashboard</p>
                     </a>
@@ -36,13 +36,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/data_request" class="nav-link">
+                    <a href="/admin_utama/data_request" class="nav-link">
                         <i class="nav-icon fas fa-user text-danger"></i>
                         <p class="text">Data Siswa Terdaftar</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/data_pendaftar" class="nav-link">
+                    <a href="/admin_utama/data_pendaftar" class="nav-link">
                         <i class="nav-icon fas fa-user text-danger"></i>
                         <p class="text">Data Pendaftar</p>
                     </a>

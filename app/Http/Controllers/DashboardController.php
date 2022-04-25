@@ -42,7 +42,8 @@ class DashboardController extends Controller
     public function dashboard_siswa()
     {
         if(session()->get('loggin') == true){
-        return view('siswa.dashboard');
+        $user_counts = DB::table('user')->where('id_user_level', '=', 2)->count();
+        return view('siswa.dashboard', compact('user_counts'));
         }else{
             return redirect()
             ->route('login_web')

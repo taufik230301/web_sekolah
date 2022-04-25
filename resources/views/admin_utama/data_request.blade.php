@@ -101,7 +101,7 @@
                                                     <i class="fas fa-times"></i>
                                                     <?php } else{?>
                                                         <a
-                                                        href="send-mail/{{$user_request->email}}/{{$user_request->nama_lengkap}}/{{$user_request->id}}">{{ $user_request->email}}</a>
+                                                        href="send-mail/{{$user_request->email}}/{{$user_request->nama_lengkap}}/{{$user_request->id}}/{{$user_request->nidn}}">{{ $user_request->email}}</a>
                                                     <?php }
                                                   ?>
                                                     
@@ -129,22 +129,22 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="/tambah_siswa" method="POST">
+                                <form action="/tambah_siswa_admin_utama" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label for="nama_lengkap">Nama Lengkap</label>
                                         <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
-                                            aria-describedby="nama_lengkap">
+                                            aria-describedby="nama_lengkap" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="nomor_pendaftaran">Nomor Pendaftaran</label>
                                         <input type="text" class="form-control" id="nomor_pendaftaran"
-                                            name="nomor_pendaftaran" aria-describedby="nomor_pendaftaran">
+                                            name="nomor_pendaftaran" aria-describedby="nomor_pendaftaran" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="nidn">NIDN</label>
                                         <input type="text" class="form-control" id="nidn" name="nidn"
-                                            aria-describedby="nidn">
+                                            aria-describedby="nidn" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>

@@ -119,6 +119,34 @@ class DataSiswaController extends Controller
     }
     }
 
+    public function update_status_data(Request $request){
+        $id_status_verifikasi = $request->id_status_verifikasi;
+        $id = $request->id;
+
+       try {
+        $affected = DB::table('user_detail')
+              ->where('id_user_detail', $id)
+              ->update([
+              'id_status_verifikasi' => $id_status_verifikasi
+              ]);
+       
+        return redirect()
+        ->back()
+        ->withInput()
+        ->with([
+            'success' => 'Sukses, Data Telah Diverifikasi !'
+        ]);
+
+    } catch (\Exception $e) {
+        return redirect()
+        ->back()
+        ->withInput()
+        ->with([
+            'error' => 'Error,  Data Belum Diverifikasi !'
+        ]);
+    }
+    }
+
     public function update_status_data_admin_utama(Request $request){
         $id_status_verifikasi = $request->id_status_verifikasi;
         $id = $request->id;

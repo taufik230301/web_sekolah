@@ -167,18 +167,18 @@
                                                                     <input type="text" class="form-control"
                                                                         id="judul_pengumuman" name="judul_pengumuman"
                                                                         aria-describedby="judul_pengumuman"
-                                                                        value="{{$pengumuman->judul_pengumuman}}">
+                                                                        value="{{$pengumuman->judul_pengumuman}}" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="isi_pengumuman">Isi Pengumuman</label>
-                                                                    <textarea id="isi_pengumuman" name="isi_pengumuman" rows="4" cols="61">{{$pengumuman->isi_pengumuman}}</textarea>
+                                                                    <textarea id="isi_pengumuman" name="isi_pengumuman" rows="4" cols="61" required>{{$pengumuman->isi_pengumuman}}</textarea>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="nama_penulis">Nama Penulis</label>
                                                                     <input type="text" class="form-control"
                                                                         id="nama_penulis" name="nama_penulis"
                                                                         aria-describedby="nama_penulis"
-                                                                        value="{{$pengumuman->nama_penulis}}">
+                                                                        value="{{$pengumuman->nama_penulis}}" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="tanggal_pengumuman">Tanggal
@@ -187,7 +187,7 @@
                                                                         id="tanggal_pengumuman"
                                                                         name="tanggal_pengumuman"
                                                                         aria-describedby="tanggal_pengumuman"
-                                                                        value="{{$pengumuman->tanggal_pengumuman}}">
+                                                                        value="{{$pengumuman->tanggal_pengumuman}}" required>
                                                                 </div>
                                                                 <input type="text"
                                                                     value="{{$pengumuman->id_pengumuman}}"
@@ -227,21 +227,21 @@
                                         <div class="form-group">
                                             <label for="judul_pengumuman">Judul Pengumuman</label>
                                             <input type="text" class="form-control" id="judul_pengumuman"
-                                                name="judul_pengumuman" aria-describedby="judul_pengumuman">
+                                                name="judul_pengumuman" aria-describedby="judul_pengumuman" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="isi_pengumuman">Isi Pengumuman</label>
-                                            <textarea id="isi_pengumuman" name="isi_pengumuman" rows="4" cols="61"></textarea>
+                                            <textarea id="isi_pengumuman" name="isi_pengumuman" rows="4" cols="61" required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="nama_penulis">Nama Penulis</label>
                                             <input type="text" class="form-control" id="nama_penulis"
-                                                name="nama_penulis" aria-describedby="nama_penulis">
+                                                name="nama_penulis" aria-describedby="nama_penulis" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="tanggal_pengumuman">Tanggal Pengumuman</label>
                                             <input type="date" class="form-control" id="tanggal_pengumuman"
-                                                name="tanggal_pengumuman" aria-describedby="tanggal_pengumuman">
+                                                name="tanggal_pengumuman" aria-describedby="tanggal_pengumuman" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>

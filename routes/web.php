@@ -47,7 +47,11 @@ Route::get('/admin_utama', [DashboardController::class, 'dashboard_admin_utama']
 Route::get('/admin/data_request', [DataRequestController::class, 'data_request_admin'])->name('data_request_admin');
 Route::post('/tambah_siswa', [DataRequestController::class, 'tambah_siswa']);
 
+Route::get('/admin_utama/data_request', [DataRequestController::class, 'data_request_admin_utama'])->name('data_request_admin_utama');
+Route::post('/tambah_siswa_admin_utama', [DataRequestController::class, 'tambah_siswa_admin_utama']);
+
 Route::get('/admin/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin']);
+Route::get('/admin_utama/data_pendaftar', [DataPendaftarController::class, 'data_pendaftar_admin_utama']);
 
 Route::get('/admin_utama/data_panitia', [DataPanitiaController::class, 'data_panitia_admin'])->name('data_panitia_admin');
 Route::post('/admin_utama/atur_verifikasi_admin', [DataPanitiaController::class, 'update_verifikasi_admin']);
@@ -86,9 +90,14 @@ Route::get('/siswa/cetak_kwitansi/{id}', function ($id) {
 Route::get('/siswa/data_pengumuman', [DataPengumumanController::class, 'data_pengumuman_siswa'])->name('data_pengumuman_siswa');
 Route::get('/siswa/data_kelas', [DataSiswaController::class, 'data_kelas_siswa'])->name('data_kelas_siswa');
 
-Route::get('/admin/send-mail/{email}/{nama_lengkap}/{id}', function ($email,  $nama_lengkap, $id) {
+Route::get('/admin/send-mail/{email}/{nama_lengkap}/{id}/{nidn}', function ($email,  $nama_lengkap, $id, $nidn) {
    
-    return App::call('App\Http\Controllers\DataRequestController::send_mail' , ['email' => $email, 'nama_lengkap' => $nama_lengkap,  'id' => $id]);
+    return App::call('App\Http\Controllers\DataRequestController::send_mail' , ['email' => $email, 'nama_lengkap' => $nama_lengkap,  'id' => $id,  'nidn' => $nidn]);
+});
+
+Route::get('/admin_utama/send-mail/{email}/{nama_lengkap}/{id}/{nidn}', function ($email,  $nama_lengkap, $id, $nidn) {
+   
+    return App::call('App\Http\Controllers\DataRequestController::send_mail_admin_utama' , ['email' => $email, 'nama_lengkap' => $nama_lengkap,  'id' => $id,  'nidn' => $nidn]);
 });
 
 Route::get('/admin/download/{file}', function ($file){

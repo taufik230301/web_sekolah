@@ -55,16 +55,16 @@
                     <form method="POST" action="/register_proses_admin">
                         @csrf
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Username" name="username">
+                            <input class="input--style-1" type="text" placeholder="Username" name="username" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Password" name="password">
+                            <input class="input--style-1" type="text" placeholder="Password" name="password" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="No Telp" name="no_telp">
+                            <input class="input--style-1" type="text" placeholder="No Telp" name="no_telp" required>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Email" name="email">
+                            <input class="input--style-1" type="text" placeholder="Email" name="email" required>
                         </div>
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit">Submit</button>

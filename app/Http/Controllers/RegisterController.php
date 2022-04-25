@@ -75,7 +75,7 @@ class RegisterController extends Controller
     
         try {
             DB::transaction(function () use ($id, $email, $username, $password, $no_telp) {
-                DB::insert("INSERT INTO user(id,email,username,password,no_telp,id_user_level,id_user_detail) VALUES('$id','$email','$username','$password','$no_telp','1','$id')");
+                DB::insert("INSERT INTO user(id,email,username,password,no_telp,id_user_level,id_user_detail, is_active) VALUES('$id','$email','$username','$password','$no_telp','1','$id','0')");
                 DB::insert("INSERT INTO user_detail(id_user_detail) VALUES('$id')");
             });
                 return redirect()
