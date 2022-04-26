@@ -101,6 +101,26 @@
                                                 <th>Kecamatan</th>
                                                 <th>Kabupaten</th>
                                                 <th>Provinsi</th>
+                                                <th><h3>Data Ayah Kandung/Tiri</h3></th>
+                                                <th>Nama</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
+                                                <th>Agama</th>
+                                                <th>Pendidikan</th>
+                                                <th>Pekerjaan</th>
+                                                <th>Warga Negara</th>
+                                                <th>Nomor Telp</th>
+                                                <th>Pendapatan</th>
+                                                <th><h3>Data Ibu Kandung/Tiri</h3></th>
+                                                <th>Nama</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
+                                                <th>Agama</th>
+                                                <th>Pendidikan</th>
+                                                <th>Pekerjaan</th>
+                                                <th>Warga Negara</th>
+                                                <th>Nomor Telp</th>
+                                                <th>Pendapatan</th>
                                                 <th>Atur Kelas</th>
                                                 <th>Atur Status Data</th>
                                                 <th>Hapus Data</th>
@@ -183,6 +203,26 @@
                                                 <td>{{$user_siswa->kecamatan}}</td>
                                                 <td>{{$user_siswa->kabupaten}}</td>
                                                 <td>{{$user_siswa->provinsi}}</td>
+                                                <td></td>
+                                                <td>{{$user_siswa->nama_ayah}}</td>
+                                                <td>{{$user_siswa->tempat_lahir_ayah}}</td>
+                                                <td>{{$user_siswa->tanggal_lahir_ayah}}</td>
+                                                <td>{{$user_siswa->agama_ayah}}</td>
+                                                <td>{{$user_siswa->pendidikan_ayah}}</td>
+                                                <td>{{$user_siswa->pekerjaan_ayah}}</td>
+                                                <td>{{$user_siswa->warga_negara_ayah}}</td>
+                                                <td>{{$user_siswa->nomor_telepon_ayah}}</td>
+                                                <td>{{$user_siswa->pendapatan_ayah}}</td>
+                                                <td></td>
+                                                <td>{{$user_siswa->nama_ibu}}</td>
+                                                <td>{{$user_siswa->tempat_lahir_ibu}}</td>
+                                                <td>{{$user_siswa->tanggal_lahir_ibu}}</td>
+                                                <td>{{$user_siswa->agama_ibu}}</td>
+                                                <td>{{$user_siswa->pendidikan_ibu}}</td>
+                                                <td>{{$user_siswa->pekerjaan_ibu}}</td>
+                                                <td>{{$user_siswa->warga_negara_ibu}}</td>
+                                                <td>{{$user_siswa->nomor_telepon_ibu}}</td>
+                                                <td>{{$user_siswa->pendapatan_ibu}}</td>
                                                 <td>
                                                     <div class="table-responsive">
                                                         <div class="table table-striped table-hover ">
