@@ -73,6 +73,7 @@
                                                 <th>Isi Pengumuman</th>
                                                 <th>Nama Penulis</th>
                                                 <th>Tanggal Pengumuman</th>
+                                                <th>Foto Pengumuman</th>
                                                 <th>Edit Pengumuman</th>
                                                 <th>Hapus Pengumuman</th>
                                             </tr>
@@ -86,6 +87,13 @@
                                                 <td>{{$pengumuman->isi_pengumuman}}</td>
                                                 <td> {{$pengumuman->nama_penulis}}</td>
                                                 <td>{{$pengumuman->tanggal_pengumuman}}</td>
+                                                <td>
+                                                    <center> <a
+                                                            href="{{asset('/storage/pengumuman')}}/{{$pengumuman->foto_pengumuman}}"
+                                                            target="_blank"><img
+                                                                src="{{asset('/storage/pengumuman')}}/{{$pengumuman->foto_pengumuman}}"
+                                                                style="width: 25%"> </a>
+                                                </td>
                                                 <td>
                                                     <div class="table-responsive">
                                                         <div class="table table-striped table-hover ">
@@ -130,6 +138,10 @@
                                                                     <div class="col-md-12">
                                                                         <input type="hidden" name="id_pengumuman"
                                                                             value="{{$pengumuman->id_pengumuman}}" />
+                                                                        <input type="text" name="foto_pengumuman_old"
+                                                                            id="foto_pengumuman_old"
+                                                                            value="{{$pengumuman->foto_pengumuman}}"
+                                                                            hidden>
                                                                         <p>Apakah kamu yakin ingin menghapus data
                                                                             ini?</i></b></p>
                                                                     </div>
@@ -159,7 +171,8 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="/admin/data_pengumuman_edit" method="POST">
+                                                            <form action="/admin/data_pengumuman_edit"
+                                                                enctype="multipart/form-data" method="POST">
                                                                 @csrf
                                                                 <div class="form-group">
                                                                     <label for="judul_pengumuman">Judul
@@ -167,11 +180,14 @@
                                                                     <input type="text" class="form-control"
                                                                         id="judul_pengumuman" name="judul_pengumuman"
                                                                         aria-describedby="judul_pengumuman"
-                                                                        value="{{$pengumuman->judul_pengumuman}}" required>
+                                                                        value="{{$pengumuman->judul_pengumuman}}"
+                                                                        required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="isi_pengumuman">Isi Pengumuman</label>
-                                                                    <textarea id="isi_pengumuman" name="isi_pengumuman" rows="4" cols="61" required>{{$pengumuman->isi_pengumuman}}</textarea>
+                                                                    <textarea id="isi_pengumuman" name="isi_pengumuman"
+                                                                        rows="4" cols="61"
+                                                                        required>{{$pengumuman->isi_pengumuman}}</textarea>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="nama_penulis">Nama Penulis</label>
@@ -187,11 +203,22 @@
                                                                         id="tanggal_pengumuman"
                                                                         name="tanggal_pengumuman"
                                                                         aria-describedby="tanggal_pengumuman"
-                                                                        value="{{$pengumuman->tanggal_pengumuman}}" required>
+                                                                        value="{{$pengumuman->tanggal_pengumuman}}"
+                                                                        required>
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <label for="foto_pengumuman">Foto Pengumuman</label>
+                                                                    <input type="file" class="form-control"
+                                                                        id="foto_pengumuman" name="foto_pengumuman">
+                                                                </div>
+                                                                <input type="text" name="foto_pengumuman_old"
+                                                                    id="foto_pengumuman_old"
+                                                                    value="{{$pengumuman->foto_pengumuman}}" hidden>
+
                                                                 <input type="text"
                                                                     value="{{$pengumuman->id_pengumuman}}"
                                                                     name="id_pengumuman" hidden>
+
                                                                 <button type="submit"
                                                                     class="btn btn-primary">Submit</button>
                                                             </form>
@@ -222,7 +249,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="/admin/data_pengumuman_tambah" method="POST">
+                                    <form action="/admin/data_pengumuman_tambah" enctype="multipart/form-data" method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <label for="judul_pengumuman">Judul Pengumuman</label>
@@ -231,7 +258,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="isi_pengumuman">Isi Pengumuman</label>
-                                            <textarea id="isi_pengumuman" name="isi_pengumuman" rows="4" cols="61" required></textarea>
+                                            <textarea id="isi_pengumuman" name="isi_pengumuman" rows="4" cols="61"
+                                                required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="nama_penulis">Nama Penulis</label>
@@ -241,7 +269,13 @@
                                         <div class="form-group">
                                             <label for="tanggal_pengumuman">Tanggal Pengumuman</label>
                                             <input type="date" class="form-control" id="tanggal_pengumuman"
-                                                name="tanggal_pengumuman" aria-describedby="tanggal_pengumuman" required>
+                                                name="tanggal_pengumuman" aria-describedby="tanggal_pengumuman"
+                                                required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="foto_pengumuman">Foto Pengumuman</label>
+                                            <input type="file" class="form-control" id="foto_pengumuman"
+                                                name="foto_pengumuman" aria-describedby="foto_pengumuman" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>

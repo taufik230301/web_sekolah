@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 
 class DataPengumumanController extends Controller
@@ -55,14 +57,36 @@ class DataPengumumanController extends Controller
 
     public function store_pengumuman(Request $request)
     {
+
+        
+        $validator = Validator::make($request->all(), [
+            'foto_pengumuman' => "required"
+        ]);
+ 
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Tidak Terupload !'
+                ]);
+        }
+        
         $judul_pengumuman = $request->judul_pengumuman;
         $isi_pengumuman = $request->isi_pengumuman;
         $nama_penulis = $request->nama_penulis;
         $tanggal_pengumuman = $request->tanggal_pengumuman;
 
+        $name_foto_pengumuman = $request->file('foto_pengumuman')->getClientOriginalName();
+   
+        $path_foto_pengumuman = $request->file('foto_pengumuman')->store('public/pengumuman');
+
+        $file_name_foto_pengumuman = str_replace("public/pengumuman/", "", $path_foto_pengumuman );
+
+
         try {
-            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman) {
-                DB::insert("INSERT INTO pengumuman(judul_pengumuman,isi_pengumuman,nama_penulis, tanggal_pengumuman) VALUES('$judul_pengumuman','$isi_pengumuman','$nama_penulis','$tanggal_pengumuman')");
+            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman, $file_name_foto_pengumuman) {
+                DB::insert("INSERT INTO pengumuman(judul_pengumuman,isi_pengumuman,nama_penulis, tanggal_pengumuman, foto_pengumuman) VALUES('$judul_pengumuman','$isi_pengumuman','$nama_penulis','$tanggal_pengumuman', '$file_name_foto_pengumuman')");
             });
                 return redirect()
                     ->route('data_pengumuman_admin')
@@ -80,18 +104,47 @@ class DataPengumumanController extends Controller
         }
 
         public function edit_pengumuman(Request $request)
-    
         {
+            
+        
+        $validator = Validator::make($request->all(), [
+            'foto_pengumuman' => "required"
+        ]);
+ 
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Tidak Terupload !'
+                ]);
+        }
+        
         $id_pengumuman = $request->id_pengumuman;
         $judul_pengumuman = $request->judul_pengumuman;
         $isi_pengumuman = $request->isi_pengumuman;
         $nama_penulis = $request->nama_penulis;
         $tanggal_pengumuman = $request->tanggal_pengumuman;
+        $foto_pengumuman_old = $request->foto_pengumuman_old;
+
+        $name_foto_pengumuman = $request->file('foto_pengumuman')->getClientOriginalName();
+   
+        $path_foto_pengumuman = $request->file('foto_pengumuman')->store('public/pengumuman');
+
+        $file_name_foto_pengumuman = str_replace("public/pengumuman/", "", $path_foto_pengumuman );
+
 
         try {
-            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman, $id_pengumuman) {
-                DB::update("UPDATE pengumuman SET judul_pengumuman='$judul_pengumuman', isi_pengumuman='$isi_pengumuman', nama_penulis='$nama_penulis', tanggal_pengumuman='$tanggal_pengumuman' WHERE id_pengumuman='$id_pengumuman'");
+           
+            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman, $file_name_foto_pengumuman ,$id_pengumuman) {
+                DB::update("UPDATE pengumuman SET judul_pengumuman='$judul_pengumuman', isi_pengumuman='$isi_pengumuman', nama_penulis='$nama_penulis', tanggal_pengumuman='$tanggal_pengumuman' , foto_pengumuman='$file_name_foto_pengumuman' WHERE id_pengumuman='$id_pengumuman'");
             });
+            if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
+                File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
+            }else{
+                dd('File does not exists.');
+            }
+            
                 return redirect()
                     ->route('data_pengumuman_admin')
                     ->with([
@@ -110,9 +163,19 @@ class DataPengumumanController extends Controller
         public function delete_pengumuman(Request $request)
         {
             $id_pengumuman = $request->id_pengumuman;
+            $foto_pengumuman_old = $request->foto_pengumuman_old;
+
+            // echo var_dump($foto_pengumuman_old);
+            // die();
            
     
             try {
+                if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
+                    File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
+                }else{
+                    dd('File does not exists.');
+                }
+
                 DB::transaction(function () use ($id_pengumuman) {
                     DB::update("DELETE FROM pengumuman WHERE id_pengumuman='$id_pengumuman'");
                 });
@@ -136,14 +199,35 @@ class DataPengumumanController extends Controller
     
     public function store_pengumuman_admin_utama(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'foto_pengumuman' => "required"
+        ]);
+ 
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, Data Tidak Terupload !'
+                ]);
+        }
+        
         $judul_pengumuman = $request->judul_pengumuman;
         $isi_pengumuman = $request->isi_pengumuman;
         $nama_penulis = $request->nama_penulis;
         $tanggal_pengumuman = $request->tanggal_pengumuman;
 
+        $name_foto_pengumuman = $request->file('foto_pengumuman')->getClientOriginalName();
+   
+        $path_foto_pengumuman = $request->file('foto_pengumuman')->store('public/pengumuman');
+
+        $file_name_foto_pengumuman = str_replace("public/pengumuman/", "", $path_foto_pengumuman );
+
+      
+
         try {
-            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman) {
-                DB::insert("INSERT INTO pengumuman(judul_pengumuman,isi_pengumuman,nama_penulis, tanggal_pengumuman) VALUES('$judul_pengumuman','$isi_pengumuman','$nama_penulis','$tanggal_pengumuman')");
+            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman, $file_name_foto_pengumuman) {
+                DB::insert("INSERT INTO pengumuman(judul_pengumuman,isi_pengumuman,nama_penulis, tanggal_pengumuman, foto_pengumuman) VALUES('$judul_pengumuman','$isi_pengumuman','$nama_penulis','$tanggal_pengumuman', '$file_name_foto_pengumuman')");
             });
                 return redirect()
                     ->route('data_pengumuman_admin')
@@ -161,18 +245,41 @@ class DataPengumumanController extends Controller
         }
 
         public function edit_pengumuman_admin_utama(Request $request)
-    
         {
+            $validator = Validator::make($request->all(), [
+                'foto_pengumuman' => "required"
+            ]);
+     
+            if ($validator->fails()) {
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->with([
+                        'error' => 'Error, Data Tidak Terupload !'
+                    ]);
+            }
+
         $id_pengumuman = $request->id_pengumuman;
         $judul_pengumuman = $request->judul_pengumuman;
         $isi_pengumuman = $request->isi_pengumuman;
         $nama_penulis = $request->nama_penulis;
         $tanggal_pengumuman = $request->tanggal_pengumuman;
 
+        $name_foto_pengumuman = $request->file('foto_pengumuman')->getClientOriginalName();
+   
+        $path_foto_pengumuman = $request->file('foto_pengumuman')->store('public/pengumuman');
+
+        $file_name_foto_pengumuman = str_replace("public/pengumuman/", "", $path_foto_pengumuman );
+
         try {
-            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman, $id_pengumuman) {
-                DB::update("UPDATE pengumuman SET judul_pengumuman='$judul_pengumuman', isi_pengumuman='$isi_pengumuman', nama_penulis='$nama_penulis', tanggal_pengumuman='$tanggal_pengumuman' WHERE id_pengumuman='$id_pengumuman'");
+            DB::transaction(function () use ($judul_pengumuman, $isi_pengumuman, $nama_penulis, $tanggal_pengumuman,$file_name_foto_pengumuman , $id_pengumuman) {
+                DB::update("UPDATE pengumuman SET judul_pengumuman='$judul_pengumuman', isi_pengumuman='$isi_pengumuman', nama_penulis='$nama_penulis', tanggal_pengumuman='$tanggal_pengumuman', foto_pengumuman='$file_name_foto_pengumuman' WHERE id_pengumuman='$id_pengumuman'");
             });
+            if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
+                File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
+            }else{
+                dd('File does not exists.');
+            }
                 return redirect()
                     ->route('data_pengumuman_admin')
                     ->with([
@@ -194,6 +301,11 @@ class DataPengumumanController extends Controller
            
     
             try {
+                if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
+                    File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
+                }else{
+                    dd('File does not exists.');
+                }
                 DB::transaction(function () use ($id_pengumuman) {
                     DB::update("DELETE FROM pengumuman WHERE id_pengumuman='$id_pengumuman'");
                 });

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class DataSiswaController extends Controller
@@ -120,6 +122,8 @@ class DataSiswaController extends Controller
     }
 
     public function update_status_data(Request $request){
+
+
         $id_status_verifikasi = $request->id_status_verifikasi;
         $id = $request->id;
 
