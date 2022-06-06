@@ -33,12 +33,12 @@ class FormulirController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'ijazah' => "required|mimes:pdf|max:10000",
-            'skhun' => "required|mimes:pdf|max:10000",
-            'kk' => "required|mimes:pdf|max:10000",
-            'akta_kelahiran' => "required|mimes:pdf|max:10000",
-            'foto' => "required|mimes:jpg,png,jpeg|max:10000",
-            'surat_keterangan_lulus' => "required|mimes:pdf|max:10000"
+            'ijazah' => "required",
+            'skhun' => "required",
+            'kk' => "required",
+            'akta_kelahiran' => "required",
+            'foto' => "required",
+            'surat_keterangan_lulus' => "required"
         ]);
  
         if ($validator->fails()) {

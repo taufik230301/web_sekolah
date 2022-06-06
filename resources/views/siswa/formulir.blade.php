@@ -56,6 +56,7 @@
                 <div>
                 </div>
                 <div class="container">
+                    @foreach($user_siswas as $user_siswa)
                     <div class="row">
                         <div class="col text-center">
                             <img src="{{asset('public/assets/img/logo_sekolah.png')}}" alt="" width="100px">
@@ -70,9 +71,15 @@
                     </div>
 
                     <div class="container-fluid">
+                        <?php if($user_siswa->id_status_terdaftar == 2){ ?>
+                        <center>
+                            <h2>Terimakasih, Anda Telah Terdaftar</h2>
+                        </center>
+                        <?php }else{ ?>
 
-                        @foreach($user_siswas as $user_siswa)
-
+                        <center>
+                            <h2>Anda Belum Terdaftar</h2>
+                        </center>
 
                         <form action="/formulir_proses" enctype="multipart/form-data" method="POST">
                             @csrf
@@ -362,7 +369,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="nomor_telepon_ayah">Nomor Telepon Ayah</label>
-                                <input type="text" class="form-control" id="nomor_telepon_ayah" name="nomor_telepon_ayah">
+                                <input type="text" class="form-control" id="nomor_telepon_ayah"
+                                    name="nomor_telepon_ayah">
                             </div>
                             <div class="form-group">
                                 <label for="pendapatan_ayah">Pendapatan Ayah</label>
@@ -381,8 +389,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="tanggal_lahir_ibu">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="tanggal_lahir_ibu"
-                                    name="tanggal_lahir_ibu">
+                                <input type="date" class="form-control" id="tanggal_lahir_ibu" name="tanggal_lahir_ibu">
                             </div>
                             <div class="form-group">
                                 <label for="agama_ibu">Agama : </label>
@@ -440,6 +447,7 @@
                             <input type="text" value="{{ session()->get('id');}}" name="id" hidden>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+                        <?php } ?>
                         @endforeach
                         <!-- /.row (main row) -->
                     </div>
