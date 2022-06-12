@@ -54,22 +54,25 @@
                 @endif
                 <div class="container-fluid">
 
-                @foreach($pengumumans as $pengumuman)
+                    @foreach($pengumumans as $pengumuman)
                     <div class="card text-center">
                         <div class="card-header">
-                        PENGUMUMAN
+                            PENGUMUMAN
                         </div>
                         <div class="card-body">
+                            <center> <img src="{{asset('/storage/pengumuman')}}/{{$pengumuman->foto_pengumuman}}"
+                                    style="width: 25%"></center>
+                                    <br>
                             <h3>{{$pengumuman->judul_pengumuman}}</h3>
                             <p class="card-text">{{$pengumuman->isi_pengumuman}}.
                             </p>
                             <p class="text-right">Penulis : {{$pengumuman->nama_penulis}}</p>
                         </div>
                         <div class="card-footer text-muted">
-                        Tanggal : {{$pengumuman->tanggal_pengumuman}}
+                            Tanggal : {{$pengumuman->tanggal_pengumuman}}
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
