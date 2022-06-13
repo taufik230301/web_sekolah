@@ -199,8 +199,6 @@ class DataSiswaController extends Controller
                 File::delete(public_path('storage/akta_kelahiran/'.$akta_kelahiran));
                 File::delete(public_path('storage/foto/'.$foto));
                 File::delete(public_path('storage/surat_keterangan_lulus/'.$surat_keterangan_lulus));
-            }else{
-                dd('File does not exists.');
             }
 
             DB::transaction(function () use ($id) {
@@ -242,8 +240,6 @@ class DataSiswaController extends Controller
                 File::delete(public_path('storage/akta_kelahiran/'.$akta_kelahiran));
                 File::delete(public_path('storage/foto/'.$foto));
                 File::delete(public_path('storage/surat_keterangan_lulus/'.$surat_keterangan_lulus));
-            }else{
-                dd('File does not exists.');
             }
 
             DB::transaction(function () use ($id) {

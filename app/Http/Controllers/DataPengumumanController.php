@@ -141,8 +141,6 @@ class DataPengumumanController extends Controller
             });
             if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
                 File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
-            }else{
-                dd('File does not exists.');
             }
             
                 return redirect()
@@ -172,8 +170,6 @@ class DataPengumumanController extends Controller
             try {
                 if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
                     File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
-                }else{
-                    dd('File does not exists.');
                 }
 
                 DB::transaction(function () use ($id_pengumuman) {
@@ -277,8 +273,6 @@ class DataPengumumanController extends Controller
             });
             if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
                 File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
-            }else{
-                dd('File does not exists.');
             }
                 return redirect()
                     ->route('data_pengumuman_admin')
@@ -303,8 +297,6 @@ class DataPengumumanController extends Controller
             try {
                 if(File::exists(public_path('storage/pengumuman/'.$foto_pengumuman_old))){
                     File::delete(public_path('storage/pengumuman/'.$foto_pengumuman_old));
-                }else{
-                    dd('File does not exists.');
                 }
                 DB::transaction(function () use ($id_pengumuman) {
                     DB::update("DELETE FROM pengumuman WHERE id_pengumuman='$id_pengumuman'");

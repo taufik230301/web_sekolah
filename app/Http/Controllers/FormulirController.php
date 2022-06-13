@@ -207,15 +207,13 @@ class FormulirController extends Controller
               ->where('id', $id)
               ->update(['no_telp' => $no_telp]);
 
-            if(File::exists(public_path('storage/ijazah/'.$ijazah_old))){
+            if(File::exists(public_path('storage/ijazah/'.$ijazah_old)) AND File::delete(public_path('storage/skhun/'.$skhun_old)) ){
                 File::delete(public_path('storage/ijazah/'.$ijazah_old));
                 File::delete(public_path('storage/skhun/'.$skhun_old));
                 File::delete(public_path('storage/kk/'.$kk_old));
                 File::delete(public_path('storage/akta_kelahiran/'.$akta_kelahiran_old));
                 File::delete(public_path('storage/foto/'.$foto_old));
                 File::delete(public_path('storage/surat_keterangan_lulus/'.$surat_keterangan_lulus_old));
-            }else{
-                dd('File does not exists.');
             }
        
         return redirect()
