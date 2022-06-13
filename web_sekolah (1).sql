@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 07:33 AM
+-- Generation Time: Jun 13, 2022 at 10:37 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -76,16 +76,16 @@ CREATE TABLE `pengumuman` (
   `judul_pengumuman` varchar(100) NOT NULL,
   `isi_pengumuman` text NOT NULL,
   `nama_penulis` varchar(50) NOT NULL,
-  `tanggal_pengumuman` date NOT NULL
+  `tanggal_pengumuman` date NOT NULL,
+  `foto_pengumuman` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengumuman`
 --
 
-INSERT INTO `pengumuman` (`id_pengumuman`, `judul_pengumuman`, `isi_pengumuman`, `nama_penulis`, `tanggal_pengumuman`) VALUES
-(3, 'Pembagian Kelas', 'Wajib bagi siswa sudah mendapatkan kelas nya masing - masing, harus mendapat kelas yang sudah ditentukan, karena akan dimulai kegiatan belajar mengajar semester', 'Taufik', '2022-04-14'),
-(7, 'Jadwal Kelas', 'Nanti akan dibagikan kelas masing masing', 'Taufik', '2022-04-27');
+INSERT INTO `pengumuman` (`id_pengumuman`, `judul_pengumuman`, `isi_pengumuman`, `nama_penulis`, `tanggal_pengumuman`, `foto_pengumuman`) VALUES
+(13, 'kelas baru', 'Jadwal baru yang telah dikeluarkan, akan di jadikan kelas baru, saya sudah konfirmasi', 'Taufik', '2022-06-30', 'XxJ2QwZO0hEhIAaS3bSk0gQmeTsTEB4Z3FEMmlIV.png');
 
 -- --------------------------------------------------------
 
@@ -109,13 +109,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `no_telp`, `id_user_level`, `id_user_detail`, `is_active`) VALUES
+('31b758ce32cf8f52fa06dfe81dbbabf77b2daa1c', 'panitia_02', 'panitia_02', 'panitia_02@gmail.com', '08127818127', 1, '31b758ce32cf8f52fa06dfe81dbbabf77b2daa1c', 1),
+('ca64cdd88308dd9ae11db3b7bc7cc684aae03eb6', 'panatia_01', 'panatia_01', 'panatia_01@gmail.com', '0182812712', 1, 'ca64cdd88308dd9ae11db3b7bc7cc684aae03eb6', 1),
 ('dd94709528bb1c83d08f3088d4043f4742891f4f', 'admin_utama', 'admin', 'admin@gmail.com', '0812718728', 3, 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1),
-('fba92459c5bbf723b2a5b79c5cf58a78d43d4d67', 'admin_panitia_1', 'admin123', 'admin@gmail.com', '0812718728', 1, 'fba92459c5bbf723b2a5b79c5cf58a78d43d4d67', 1),
-('c3ffa67b2402269a3cabeb2344b79c31f785c017', 'eea8d36', '61594ed', 'taufiiqul.hakim@binus.ac.id', '0812718728', 2, 'c3ffa67b2402269a3cabeb2344b79c31f785c017', NULL),
-('5dff35d6c735ae2de9840c04c704b061bc5d527a', '131311313', '207d264', 'taufiiqul.hakim@binus.ac.id', '0812718728', 2, '5dff35d6c735ae2de9840c04c704b061bc5d527a', NULL),
-('d9b970b9f05a7d7e264f8087cd12b1d07ee562cd', '1290129102', '2843e56', 'taufiiqulhakim23@gmail.com', NULL, 2, 'd9b970b9f05a7d7e264f8087cd12b1d07ee562cd', NULL),
-('ca64cdd88308dd9ae11db3b7bc7cc684aae03eb6', 'panatia_01', 'panatia_01', 'panatia_01@gmail.com', '0182812712', 1, 'ca64cdd88308dd9ae11db3b7bc7cc684aae03eb6', 0),
-('31b758ce32cf8f52fa06dfe81dbbabf77b2daa1c', 'panitia_02', 'panitia_02', 'panitia_02@gmail.com', '08127818127', 1, '31b758ce32cf8f52fa06dfe81dbbabf77b2daa1c', 0);
+('fba92459c5bbf723b2a5b79c5cf58a78d43d4d67', 'admin_panitia_1', 'admin123', 'admin@gmail.com', '0812718728', 1, 'fba92459c5bbf723b2a5b79c5cf58a78d43d4d67', 1);
 
 -- --------------------------------------------------------
 
@@ -190,13 +187,10 @@ CREATE TABLE `user_detail` (
 --
 
 INSERT INTO `user_detail` (`id_user_detail`, `nomor_pendaftaran`, `nidn`, `nama_lengkap`, `nama_panggilan`, `sekolah_asal`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `kewarganegaraan`, `status_kekeluargaan`, `anak_ke`, `saudara_kandung`, `saudara_tiri`, `NIK`, `alamat`, `rt_rw`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `kode_pos`, `id_status_verifikasi`, `id_status_validasi`, `id_status_terdaftar`, `ijazah`, `skhun`, `kk`, `akta_kelahiran`, `foto`, `surat_keterangan_lulus`, `jalur_pendaftaran`, `nilai_ipa`, `nilai_ips`, `nilai_matematika`, `nilai_bahasa_inggris`, `nilai_bahasa_indonesia`, `kelas`, `id_baju_batik`, `id_baju_olahraga`, `nama_ayah`, `tempat_lahir_ayah`, `tanggal_lahir_ayah`, `agama_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `warga_negara_ayah`, `nomor_telepon_ayah`, `pendapatan_ayah`, `nama_ibu`, `tempat_lahir_ibu`, `tanggal_lahir_ibu`, `agama_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `warga_negara_ibu`, `nomor_telepon_ibu`, `pendapatan_ibu`) VALUES
-('dd94709528bb1c83d08f3088d4043f4742891f4f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('fba92459c5bbf723b2a5b79c5cf58a78d43d4d67', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('c3ffa67b2402269a3cabeb2344b79c31f785c017', '1728172871', '172817281', 'Taufiiqul Hakim', 'taufik', 'SMPN 03 Tanjung Raja', 'Laki-Laki', 'Palembang', '2022-04-14', 'Islam', 'Indonesia', 'Kandung', 1, 0, 0, '061827182871812', 'Jl. Sekip', '001/002', 'test', 'test', 'test', 'Sumatera Selatan', 30661, 2, 2, 2, '2p9hWHYmLC9N4LgSIpa21zt6ZWRqPrWouDD2Cu9K.pdf', '00eWIxHU7klNOE4C2LGGtam21H3MupTugojEagSn.pdf', 'IbBlQFCgJuPT56u9d7s9c2NYNxnu9NTv0sCYYLAi.pdf', 'cDWAgCDXToxGWjRfhtCjlBAF3ZwouoSVHD5q96jv.pdf', 'ufwqgHBtRvDEVnIAmoFXztf1Yn361a7G6dbzD7Av.jpg', 'gnOQZgqiS0RN5OVPAQoWtQAqNAPjjlMJVGx7pgtg.pdf', 'Prestasi', 87, 90, 91, 76, 90, 'X IPS 1', 1, 1, 'Kreskres', 'Palembang', '2022-04-13', 'Islam', 'S1', 'Swasta', 'Indonesia', '0818271872', 1000000, 'Ica', 'Palembang', '2022-04-20', 'Islam', 'D3', 'Swasta', 'Indonesia', '0812781728', 18000000),
-('5dff35d6c735ae2de9840c04c704b061bc5d527a', '12121212', '131311313', 'Kresna Vespri', 'kresna', 'SMPN 03 Tanjung Raja', 'Laki-Laki', 'Palembang', '2022-04-15', 'Islam', 'Indonesia', 'Kandung', 1, 0, 0, '061827182871812', 'Jl. Sekip', '001/002', 'test', 'test', 'test', 'Sumatera Selatan', 30661, 2, 2, 2, 'VmLmh2DH0EtLM0ygPaEgTAn6SVdOXhhAsipivNaR.pdf', 'AitAXtMJH7r08RcLUA52bqZhW6vTyEfT5EXOVYOA.pdf', 'bJO7lbR2EeYoD7Xu5u4kftw2JyER89VV4b4Hel3n.pdf', 'l1fVF8VTAu5H24MptNW4mpeDUmvU5g8lghirRkyA.pdf', 'k9OAVaSp3mLgmQX2Fq78sIeMnaCnX5VsoUQs5I7v.jpg', 'iEksOyKP87EMAEk2GLyheb4gOWQmPMxxdGFvcFjB.pdf', 'Zonasi', 86, 90, 91, 90, 90, 'X IPS 1', 1, NULL, 'Kreskres', 'Palembang', '2022-04-08', 'Islam', 'S1', 'Swasta', 'Indonesia', '0812781728', 1000000, 'Ica', 'Palembang', '2022-04-14', 'Islam', 'D3', 'Swasta', 'Indonesia', '081928187281', 18000000),
-('d9b970b9f05a7d7e264f8087cd12b1d07ee562cd', '1291029012', '1290129102', 'Kresna Vespri', NULL, NULL, NULL, NULL, '2022-06-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('31b758ce32cf8f52fa06dfe81dbbabf77b2daa1c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 ('ca64cdd88308dd9ae11db3b7bc7cc684aae03eb6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('31b758ce32cf8f52fa06dfe81dbbabf77b2daa1c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('dd94709528bb1c83d08f3088d4043f4742891f4f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('fba92459c5bbf723b2a5b79c5cf58a78d43d4d67', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -232,6 +226,18 @@ ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id_pengumuman`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_detail`
+--
+ALTER TABLE `user_detail`
+  ADD PRIMARY KEY (`id_user_detail`);
+
+--
 -- Indexes for table `user_level`
 --
 ALTER TABLE `user_level`
@@ -257,7 +263,7 @@ ALTER TABLE `baju_olahraga`
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `id_pengumuman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pengumuman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_level`
